@@ -9,9 +9,9 @@
 
 ## Stake holders
 
-* organizations looking for volunteers.
+* Organizations looking for volunteers.
 
-* people seeking volunteer opportunities.
+* People seeking volunteer opportunities.
 
 * Teachers who need to check and validate service hours for students.
 
@@ -20,7 +20,7 @@
 ## Current Process
 * Facebook volunteering pages.
 
-* Ask local organizations directly
+* Ask local organizations directly.
 ---
 ## User Journey
 
