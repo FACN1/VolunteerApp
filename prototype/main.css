@@ -48,3 +48,13 @@ table {
 }
 
 /* After Reset */
+
+.tree {
+  height: 350px;
+  display: block;
+  margin: auto;
+}
+
+.hand {
+  height: 100px;
+}
