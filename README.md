@@ -50,4 +50,4 @@ As an organization,
 
 > I want to receive emails when new volunteers apply
 
-> I want to be able to log in a see roles I am advertising for
+> I want to be able to log in a see roles I am advertising for, and see how many people are avaliable.
