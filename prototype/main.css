@@ -55,6 +55,8 @@ body {
               url("../assets/tree_transparent.png") bottom right no-repeat;
   background-color: #c7ebbb;
   background-size: 20%, 20%;
+  text-align: center;
+  height: 100vh;
 
 }
 a {
