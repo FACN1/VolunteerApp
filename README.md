@@ -24,8 +24,30 @@
 ---
 ## User Journey
 
-* As someone who want to volunteer
+1. As someone who want to volunteer
 I want to visit the site and see a list
 of organizations looking for volunteers and be able register my interest in particular roles.
 
-* As  an organization looking for volunteers I want to visit the site and add volunteer roles for people to apply to.
+2. As  an organization looking for volunteers I want to visit the site and add volunteer roles for people to apply to.
+
+## User Stories
+
+### 1
+
+> As a volunteer
+
+I want to
+
+> Visit the home page and have a brief explanation about what the site is about
+
+> Click on a button on the home page that shows me a list of organizations
+
+### 2
+
+As an organization,
+
+> I want to visit the site, and click on an organization button to add new roles that we need volunteers for
+
+> I want to receive emails when new volunteers apply
+
+> I want to be able to log in a see roles I am advertising for, and see how many people are avaliable.
