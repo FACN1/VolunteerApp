@@ -48,13 +48,83 @@ table {
 }
 
 /* After Reset */
-
-.tree {
-  height: 350px;
-  display: block;
-  margin: auto;
+body {
+	font-family: 'Ranga', sans-serif;
+	text-align: center;
 }
 
-.hand {
-  height: 100px;
+.listofroles {
+  background-size: 30%;
+  background: url("../assets/tree_transparent.png") top left no-repeat,
+              url("../assets/tree_transparent.png") bottom right no-repeat;
+  background-color: #c7ebbb;
+  background-size: 20%, 20%;
+  height: 100vh;
+
+}
+a {
+  text-decoration: none;
+}
+
+.main{
+  text-align: center;
+}
+
+.main__logo {
+  width: 600px;
+}
+
+.main__volButton {
+  width: 300px;
+}
+
+.header {
+  text-align: center;
+  font-size: 48px;
+}
+
+.biglist {
+  text-align: center
+}
+
+.biglist__element {
+  padding:20px;
+}
+
+.biglist__element__head {
+  border: 1px solid black;
+  border-radius: 50%;
+  display: inline-block;
+  padding: 30px;
+  transform: translateY(-30%);
+}
+.biglist__element__rolelist {
+  display: inline-block;
+}
+
+.biglist__element__rolelist__element {
+  padding:5px;
+}
+
+.biglist__element__rolelist__element:hover {
+  cursor: pointer;
+  text-shadow: #EEEE00 0 0 10px;
+}
+.treelife{
+	width: :400px;
+  margin-bottom:300px;
+	display: block;
+	margin: 0 auto;
+
+}
+.arabic-p{
+	width: 600px;
+	height: 300px;
+	margin-top:20px;
+  margin-bottom:50px;
+	display: block;
+ 	margin: 0 auto;
+}
+.volunteer-logo{
+	width: 300px;
 }
