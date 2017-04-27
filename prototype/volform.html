@@ -9,32 +9,34 @@
 </head>
 
 <body>
-    <a class = "backlink" href="./rolepage.html">Go back to role description</a>
-    <form action="./listpage.html" method="post">
-        <div>
-            <label for="name">Full Name:</label>
-            <input type="text" id="name" name="user_name">
-        </div>
-        <div>
-            <label for="age">Age:</label>
-            <input type="number" id="age" name="user_age">
-        </div>
-        <div>
-            <label for="msg">Availability:</label>
-            <textarea id="msg" name="user_message"></textarea>
-        </div>
-        <div>
-            <label for="phone">Phone Number:</label>
-            <input type="number" id="phone" name="user_phone">
-        </div>
-        <div>
-            <label for="mail">E-mail:</label>
-            <input type="email" id="mail" name="user_mail">
-        </div>
-        <div>
-            <button type="submit" name="button">Submit Details</button>
-        </div>
+  <section class = "volForm">
+    <a class = "volForm__backlink" href="./rolepage.html"><img src="../assets/back_arrow.png" alt=""></a>
+    <form class="volForm__Form" action="./listpage.html" method="post">
+      <div class="volForm__Form__div">
+        <label class="volForm__Form__div__label" for="name">Full Name:</label>
+        <input class="volForm__Form__div__input" type="text" id="name" name="user_name">
+      </div>
+      <div class="volForm__Form__div">
+        <label class="volForm__Form__div__label" for="age">Age:</label>
+        <input class="volForm__Form__div__input" type="number" id="age" name="user_age">
+      </div>
+      <div class="volForm__Form__div">
+        <label class="volForm__Form__div__label" for="msg">Availability:</label>
+        <textarea class="volForm__Form__div__txtarea" id="msg" name="user_message"></textarea>
+      </div>
+      <div class="volForm__Form__div">
+        <label class="volForm__Form__div__label" for="phone">Phone Number:</label>
+        <input class="volForm__Form__div__input" type="number" id="phone" name="user_phone">
+      </div>
+      <div class="volForm__Form__div">
+        <label class="volForm__Form__div__label" for="mail">E-mail:</label>
+        <input class="volForm__Form__div__input" type="email" id="mail" name="user_mail">
+      </div>
+      <div class="volForm__Form__div">
+        <button class="volForm__Form__div__button" type="submit" name="button">Submit Details</button>
+      </div>
     </form>
+  </section>
 </body>
 
 </html>
