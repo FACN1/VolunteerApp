@@ -111,7 +111,7 @@ a {
   text-shadow: #EEEE00 0 0 10px;
 }
 
-.volForm {
+.Form {
   font-family: 'Ranga', cursive;
   background-size: 30%;
   background: url("../assets/tree_transparent.png") top left no-repeat,
@@ -122,7 +122,7 @@ a {
   height: 100vh;
 }
 
-.volForm__backlink {
+.Form__backlink {
   font-size: 48px;
   font-family: sans-serif;
   color: black;
@@ -136,12 +136,12 @@ a {
   border-radius: 50%;
 }
 
-.volForm__backlink:hover{
+.Form__backlink:hover{
   cursor: pointer;
   box-shadow: #EEEE00 0 0 10px, inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
 }
 
-.volForm__Form {
+.Form__Form {
     /* Just to center the form on the page */
   margin: 0 auto;
   width: 400px;
@@ -151,18 +151,18 @@ a {
   border-radius: 1em;
 }
 
-.volForm__Form__div {
+.Form__Form__div {
   margin-top: 1em;
 }
 
-.volForm__Form__div__label {
+.Form__Form__div__label {
   /* To make sure that all labels have the same size and are properly aligned */
   display: inline-block;
   width: 90px;
   text-align: right;
 }
 
-.volForm__Form__div__input {
+.Form__Form__div__input {
   /* To make sure that all text fields have the same font settings
   By default, textareas have a monospace font */
   font: 1em sans-serif;
@@ -175,7 +175,7 @@ a {
   border: 1px solid #999;
 }
 
-.volForm__Form__div__txtarea {
+.Form__Form__div__txtarea {
   /* To make sure that all text fields have the same font settings
   By default, textareas have a monospace font */
   font: 1em sans-serif;
@@ -194,7 +194,7 @@ a {
  height: 5em;
 }
 
-.volForm__Form__div__button {
+.Form__Form__div__button {
   /* To position the buttons to the same position of the text fields */
   padding-left: 90px; /* same size as the label elements */
   margin-left: .5em;
