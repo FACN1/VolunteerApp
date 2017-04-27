@@ -49,13 +49,16 @@ table {
 
 /* After Reset */
 body {
-  font-family: 'Ranga', cursive;
+	font-family: 'Ranga', sans-serif;
+	text-align: center;
+}
+
+.listofroles {
   background-size: 30%;
   background: url("../assets/tree_transparent.png") top left no-repeat,
               url("../assets/tree_transparent.png") bottom right no-repeat;
   background-color: #c7ebbb;
   background-size: 20%, 20%;
-  text-align: center;
   height: 100vh;
 }
 
@@ -150,4 +153,23 @@ a {
   padding: 1em;
   border: 1px solid #CCC;
   border-radius: 1em;
+}
+
+.treelife{
+	width: :400px;
+  margin-bottom:300px;
+	display: block;
+	margin: 0 auto;
+
+}
+.arabic-p{
+	width: 600px;
+	height: 300px;
+	margin-top:20px;
+  margin-bottom:50px;
+	display: block;
+ 	margin: 0 auto;
+}
+.volunteer-logo{
+	width: 300px;
 }
