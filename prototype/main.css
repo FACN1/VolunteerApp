@@ -109,3 +109,45 @@ a {
   cursor: pointer;
   text-shadow: #EEEE00 0 0 10px;
 }
+
+.volForm {
+  font-family: 'Ranga', cursive;
+  background-size: 30%;
+  background: url("../assets/tree_transparent.png") top left no-repeat,
+              url("../assets/tree_transparent.png") bottom right no-repeat;
+  background-color: #c7ebbb;
+  background-size: 20%, 20%;
+  text-align: center;
+  height: 100vh;
+}
+
+.volForm__backlink {
+  font-size: 48px;
+  font-family: sans-serif;
+  color: black;
+  line-height: 1.5;
+  background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
+	background-image: linear-gradient(top, #f4f1ee, #fff);
+  box-shadow: inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
+	position: absolute;
+  left: 25%;
+  top: 5%;
+	height: 70px;
+  width: 70px;
+  border-radius: 50%;
+}
+
+.volForm__backlink:hover{
+  cursor: pointer;
+  box-shadow: #EEEE00 0 0 10px, inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
+}
+
+.volForm__Form {
+    /* Just to center the form on the page */
+  margin: 0 auto;
+  width: 400px;
+  /* To see the outline of the form */
+  padding: 1em;
+  border: 1px solid #CCC;
+  border-radius: 1em;
+}
