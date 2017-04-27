@@ -225,3 +225,44 @@ a {
 .volunteer-logo{
 	width: 300px;
 }
+.rolepage__backlink {
+  font-size: 48px;
+  font-family: sans-serif;
+  color: black;
+  line-height: 1.5;
+  background-image: -webkit-linear-gradient(top, #e9f7fc, #fff);
+	background-image: linear-gradient(top, #e9f7fc, #fff);
+  box-shadow: inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
+	position: relative;
+	height: 70px;
+  width: 70px;
+  border-radius: 50%;
+}
+
+.rolepage__forwardlink {
+  font-size: 32px;
+  color: black;
+  line-height: 1.5;
+  background-image: -webkit-linear-gradient(top, #e9f7fc, #fff);
+	background-image: linear-gradient(top, #e9f7fc, #fff);
+  box-shadow: inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
+	position: relative;
+	height: 70px;
+  width: 70px;
+  border-radius: 10%;
+	padding: 5px;
+}
+.rolepage__Organizationheader{
+	font-size: 20px;
+ 	margin-bottom:10px;
+}
+
+.rolepage__Roleheader{
+	font-size: 20px;
+	margin-bottom:10px;
+}
+
+.rolepage__Roleparagraph{
+	font-size: 20px;
+	margin-bottom:10px;
+}
