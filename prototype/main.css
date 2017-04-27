@@ -53,6 +53,11 @@ body {
 	text-align: center;
 }
 
+
+a {
+  text-decoration: none;
+}
+
 .listofroles {
   background-size: 30%;
   background: url("../assets/tree_transparent.png") top right no-repeat,
@@ -60,6 +65,7 @@ body {
   background-color: #c7ebbb;
   background-size: 20%, 40%;
   height: 100vh;
+  padding: 10px;
 
 }
 .rolepage{
@@ -69,6 +75,7 @@ body {
 	background-color: #e9f7fc;
 	background-size: 20%, 40%;
 	height: 100vh;
+  padding: 10px;
 }
 
 .Form {
@@ -77,22 +84,8 @@ body {
 							url("../assets/twitt-tree.png") bottom left no-repeat;
 	background-color: #ffe6ff;
 	background-size: 20%, 40%;
-	height: 100vh;}
-
-a {
-  text-decoration: none;
-}
-
-.main{
-  text-align: center;
-}
-
-.main__logo {
-  width: 600px;
-}
-
-.main__volButton {
-  width: 300px;
+	height: 100vh;
+  padding: 10px;
 }
 
 .header {
@@ -109,11 +102,8 @@ a {
 }
 
 .biglist__element__head {
-  border: 1px solid black;
-  border-radius: 50%;
-  display: inline-block;
-  padding: 30px;
-  transform: translateY(-30%);
+  font-size: 32px;
+  color: #4d7927;
 }
 .biglist__element__rolelist {
   display: inline-block;
@@ -150,7 +140,7 @@ a {
 .Form__Form {
     /* Just to center the form on the page */
   margin: 0 auto;
-  width: 400px;
+  width: 40%;
   /* To see the outline of the form */
   padding: 1em;
   border: 1px solid #CCC;
@@ -164,7 +154,8 @@ a {
 .Form__Form__div__label {
   /* To make sure that all labels have the same size and are properly aligned */
   display: inline-block;
-  width: 90px;
+  width:100%;
+  max-width: 90px;
   text-align: right;
 }
 
@@ -174,7 +165,8 @@ a {
   font: 1em sans-serif;
 
   /* To give the same size to all text fields */
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   box-sizing: border-box;
 
   /* To harmonize the look & feel of text field border */
@@ -187,7 +179,8 @@ a {
   font: 1em sans-serif;
 
   /* To give the same size to all text fields */
-  width: 300px;
+  width:100%;
+  max-width: 300px;
   box-sizing: border-box;
 
   /* To harmonize the look & feel of text field border */
@@ -202,20 +195,20 @@ a {
 
 .Form__Form__div__button {
   /* To position the buttons to the same position of the text fields */
-  padding-left: 90px; /* same size as the label elements */
-  margin-left: .5em;
 }
 
 
 .treelife{
-	width: :400px;
+  width: 40%;
+	max-width: :400px;
   margin-bottom:300px;
 	display: block;
 	margin: 0 auto;
 
 }
 .arabic-p{
-	width: 600px;
+  width: 60%;
+	max-width: 600px;
 	height: 300px;
 	margin-top:20px;
   margin-bottom:50px;
@@ -223,7 +216,8 @@ a {
  	margin: 0 auto;
 }
 .volunteer-logo{
-	width: 300px;
+  width: 30%;
+	max-width: 300px;
 }
 .rolepage__backlink {
   font-size: 48px;
