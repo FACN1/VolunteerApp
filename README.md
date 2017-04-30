@@ -1,15 +1,15 @@
 # VolunteerApp
 ---
 ## Goals
-  * Facilitate the process of matching organizations and volunteers.
+  * Facilitate the process of matching organisations and volunteers.
 
   * Encourage people to get involved in volunteering activities.
 
-  * Help manage, organize and validate volunteering work.
+  * Help manage, organise and validate volunteering work.
 
 ## Stake holders
 
-* Organizations looking for volunteers.
+* organisations looking for volunteers.
 
 * People seeking volunteer opportunities.
 
@@ -20,15 +20,15 @@
 ## Current Process
 * Facebook volunteering pages.
 
-* Ask local organizations directly.
+* Ask local organisations directly.
 ---
 ## User Journey
 
 1. As someone who want to volunteer
 I want to visit the site and see a list
-of organizations looking for volunteers and be able register my interest in particular roles.
+of organisations looking for volunteers and be able register my interest in particular roles.
 
-2. As  an organization looking for volunteers I want to visit the site and add volunteer roles for people to apply to.
+2. As  an organisation looking for volunteers I want to visit the site and add volunteer roles for people to apply to.
 
 ## User Stories
 
@@ -40,14 +40,50 @@ I want to
 
 > Visit the home page and have a brief explanation about what the site is about
 
-> Click on a button on the home page that shows me a list of organizations
+> Click on a button on the home page that shows me a list of organisations
 
 ### 2
 
-As an organization,
+As an organisation,
 
-> I want to visit the site, and click on an organization button to add new roles that we need volunteers for
+> I want to visit the site, and click on an organisation button to add new roles that we need volunteers for
 
 > I want to receive emails when new volunteers apply
 
 > I want to be able to log in a see roles I am advertising for, and see how many people are avaliable.
+
+## User Testing Feedback
+
+- Readme doesn't explain site:
+  - [ ] Make readme better
+
+- Colour scheme causes clashes:
+  - [ ] Make a more focused colour scheme
+
+- Home page overflow:
+ - [ ] Redesign home page, ensure it all fits on one page
+
+- General Design:
+ - [ ] Make it look more like an app
+
+- No form validation:
+ - [ ] Make sure we validate the form inputs
+
+- Number of applicants so far
+ - [ ] We shouldn't limit the number of applicants, so maybe the applicants don't need to know how many other people have applied - have a "no volunteers yet" label
+
+- Language
+ - [ ] Design might change depending on the language due to direction of text, design to account for both
+
+- Why group roles by organisation?
+ - If we do this, we can't sort the list in a sensible way
+ - [ ] Instead, have the org name as part of the role listing, and then order by date, or org name or what we want to.
+
+- Not much info on listing page, have to click through:
+  - [ ] Add more information to each listing (Role 1, Org Name, Location, Start Date, End Date)
+
+- No info on role you are applying for when filling out form:
+ - [ ] Add info on role to form page
+
+- Home page info:
+ - [ ] Not hugely informative, make it more.
