@@ -55,8 +55,8 @@ body {
 
 .listofroles {
   background-size: 30%;
-  background: url("../assets/tree_transparent.png") top right no-repeat,
-							url("../assets/twitt-tree.png") bottom left no-repeat;
+  background: url("./assets/tree_transparent.png") top right no-repeat,
+							url("./assets/twitt-tree.png") bottom left no-repeat;
   background-color: #c7ebbb;
   background-size: 20%, 40%;
   height: 100vh;
@@ -64,8 +64,8 @@ body {
 }
 .rolepage{
 	background-size: 30%;
-	background: url("../assets/tree_transparent.png") top right no-repeat,
-							url("../assets/twitt-tree.png") bottom left no-repeat;
+	background: url("./assets/tree_transparent.png") top right no-repeat,
+							url("./assets/twitt-tree.png") bottom left no-repeat;
 	background-color: #e9f7fc;
 	background-size: 20%, 40%;
 	height: 100vh;
@@ -73,8 +73,8 @@ body {
 
 .Form {
 	background-size: 30%;
-	background: url("../assets/tree_transparent.png") top right no-repeat,
-							url("../assets/twitt-tree.png") bottom left no-repeat;
+	background: url("./assets/tree_transparent.png") top right no-repeat,
+							url("./assets/twitt-tree.png") bottom left no-repeat;
 	background-color: #ffe6ff;
 	background-size: 20%, 40%;
 	height: 100vh;}
