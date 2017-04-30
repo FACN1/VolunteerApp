@@ -1,0 +1,19 @@
+{
+  "name": "treeoflife",
+  "version": "1.0.0",
+  "description": "App to hlep organisations connect with volunteers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FACN1/VolunteerApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FACN1/VolunteerApp/issues"
+  },
+  "homepage": "https://github.com/FACN1/VolunteerApp#readme"
+}
