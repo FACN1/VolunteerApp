@@ -2,10 +2,11 @@
   "name": "treeoflife",
   "version": "1.0.0",
   "description": "App to hlep organisations connect with volunteers",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "./node_modules/.bin/eslint 'src/server.js'"
+    "lint": "./node_modules/.bin/eslint 'src/server.js'",
+    "start": "node src/server.js"
   },
   "repository": {
     "type": "git",
