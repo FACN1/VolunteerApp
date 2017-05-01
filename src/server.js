@@ -22,7 +22,9 @@ app.use(express.static(path.join(__dirname, '../public'), options));
 app.get('/', (req, res) => {
   res.render('home');
 });
-
+app.get('/list', (req, res) => {
+  res.render('list');
+});
 app.listen(app.get('port'), () => {
   console.log('Express server running on port: ', app.get('port'));
 });
