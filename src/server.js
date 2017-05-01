@@ -1,10 +1,18 @@
 const express = require('express');
+const path = require('path');
+
 const app = express();
 
-app.get('/', (req, res) => {
-  res.send('Hello هبة, I\'m Mavis');
-});
+app.set('port', process.env.PORT || 3000);
 
-app.listen(3000, () => {
-  console.log('Server listening on port 3000');
+const options = {
+  dotfiles: 'ignore',
+  extensions: ['htm', 'html'],
+  index: 'main.html'
+};
+
+app.use(express.static(path.join(__dirname, '../public'), options));
+
+app.listen(app.get('port'), () => {
+  console.log('Express server running on port: ', app.get('port'));
 });
