@@ -4,7 +4,8 @@
   "description": "App to hlep organisations connect with volunteers",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "./node_modules/.bin/eslint 'src/server.js'"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,20 @@
   "bugs": {
     "url": "https://github.com/FACN1/VolunteerApp/issues"
   },
-  "homepage": "https://github.com/FACN1/VolunteerApp#readme"
+  "homepage": "https://github.com/FACN1/VolunteerApp#readme",
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-semistandard": "^11.0.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-node": "^4.2.2",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-react": "^6.10.3",
+    "eslint-plugin-standard": "^3.0.1",
+    "pre-commit": "^1.2.2"
+  },
+  "pre-commit": [
+    "lint"
+  ]
+
 }
