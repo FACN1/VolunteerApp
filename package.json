@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "./node_modules/.bin/eslint 'src/server.js'",
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "dev": "./node_modules/.bin/nodemon src/server.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "^6.10.3",
     "eslint-plugin-standard": "^3.0.1",
+    "nodemon": "^1.11.0",
     "pre-commit": "^1.2.2"
   },
   "pre-commit": [
