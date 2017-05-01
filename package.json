@@ -30,6 +30,8 @@
   },
   "pre-commit": [
     "lint"
-  ]
-
+  ],
+  "dependencies": {
+    "express": "^4.15.2"
+  }
 }
