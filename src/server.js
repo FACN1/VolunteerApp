@@ -49,6 +49,11 @@ app.get('/list', (req, res) => {
     }
   });
 });
+
+app.get('/orgform', (req, res) => {
+  res.render('orgform');
+});
+
 app.listen(app.get('port'), () => {
   console.log('Express server running on port: ', app.get('port'));
 });
