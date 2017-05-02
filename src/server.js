@@ -25,6 +25,9 @@ app.get('/', (req, res) => {
 app.get('/list', (req, res) => {
   res.render('list');
 });
+app.get('/form', (req, res) => {
+  res.render('form');
+});
 app.listen(app.get('port'), () => {
   console.log('Express server running on port: ', app.get('port'));
 });
