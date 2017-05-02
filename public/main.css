@@ -1,13 +1,2 @@
 @import url(http://fonts.googleapis.com/earlyaccess/amiri.css);
 .amiri{font-family: 'Amiri', serif;}
-
-label, input {
-    display: block;
-}
-
-input {
-    margin-bottom: 20px;
-}
-button {
-    margin-bottom: 20px;
-}
