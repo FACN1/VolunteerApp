@@ -26,6 +26,9 @@ app.get('/', (req, res) => {
   res.render('home');
 });
 
+app.get('/form', (req, res) => {
+  res.render('form');
+
 app.get('/list', (req, res) => {
   const MongoClient = mongodb.MongoClient;
   const url = process.env.MONGODB_URI;
@@ -49,6 +52,7 @@ app.get('/list', (req, res) => {
     }
   });
 });
+  
 app.listen(app.get('port'), () => {
   console.log('Express server running on port: ', app.get('port'));
 });
