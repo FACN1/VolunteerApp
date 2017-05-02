@@ -35,6 +35,7 @@
     "lint"
   ],
   "dependencies": {
+    "env2": "^2.1.1",
     "express": "^4.15.2",
     "express-handlebars": "^3.0.0",
     "mongodb": "^2.2.26"
