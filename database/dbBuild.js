@@ -1,8 +1,9 @@
 const mongodb = require('mongodb');
+require('env2')('./config.env');
 
 const MongoClient = mongodb.MongoClient;
 
-const url = 'mongodb://mavisAdmin:shukran1@ds129281.mlab.com:29281/heroku_8g7jsq6q';
+const url = process.env.MONGODB_URI;
 
 MongoClient.connect(url, (err, db) => {
   if (err) return ('Error connection to DB: ', err);
@@ -10,6 +11,8 @@ MongoClient.connect(url, (err, db) => {
     console.log('connection made');
 
     const collection = db.collection('vol_roles');
+
+    collection.remove();
 
     const role1 = {
       'org_name': 'FAC',
@@ -23,12 +26,12 @@ MongoClient.connect(url, (err, db) => {
       'end_date': new Date(2017, 12, 1)
     };
     const role2 = {
-      'org_name': 'Naz Tour',
-      'org_desc': 'Tour guides for Naz',
+      'org_name': 'Hiba Slave',
+      'org_desc': 'Do stuff for hiba',
       'phone_num': '0123456789',
       'email': 'tour@naz.com',
-      'role_name': 'tour assistant',
-      'role_desc': 'help admin the tour groups',
+      'role_name': 'slave',
+      'role_desc': 'Everything hiba asks, you must do',
       'num_vlntr_req': '4',
       'start_date': new Date(2017, 6, 15),
       'end_date': new Date(2017, 8, 15)
@@ -49,15 +52,7 @@ MongoClient.connect(url, (err, db) => {
 
     collection.insert(allRoles, {w: 1}, (err, result) => {
       if (err) return ('Error inserting to DB: ', err);
-      collection.find({}).toArray(function (err, res) {
-        if (err) res.send(err);
-        else if (res.length) {
-          console.log(result);
-        } else {
-          console.log('nothing there');
-        }
-        db.close();
-      });
+      db.close();
     });
   }
 });
