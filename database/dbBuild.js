@@ -12,8 +12,6 @@ MongoClient.connect(url, (err, db) => {
 
     const collection = db.collection('vol_roles');
 
-    collection.remove();
-
     const role1 = {
       'org_name': 'FAC',
       'org_desc': 'Cool coding bootcamp',
