@@ -8,7 +8,7 @@ app.engine('.hbs', exphbs({
   extname: '.hbs'
 }));
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 8080);
 app.set('view engine', '.hbs');
 
 const options = {
