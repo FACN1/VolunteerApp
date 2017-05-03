@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const mongodb = require('mongodb');
+const ObjectId = require('mongodb').ObjectID;
 require('env2')('./config.env');
 
 const app = express();
@@ -11,7 +12,7 @@ app.engine('.hbs', exphbs({
   extname: '.hbs',
   helpers: {
     link: function (id) {
-      return '<a href="form?' + id + '">متطوع</a>';
+      return '<a href="form?id=' + id + '">متطوع</a>';
     }
   }
 }));
@@ -32,7 +33,24 @@ app.get('/', (req, res) => {
 });
 
 app.get('/form', (req, res) => {
-  res.render('form');
+  const MongoClient = mongodb.MongoClient;
+  const url = process.env.MONGODB_URI;
+
+  MongoClient.connect(url, (err, db) => {
+    if (err) return ('err: ', err);
+    else {
+      const collection = db.collection('vol_roles');
+      collection.find({
+        '_id': ObjectId(req.query.id)
+      }).toArray((err, docs) => {
+        if (err) return err;
+        res.render('form', {
+          role: docs[0]
+        });
+        db.close();
+      });
+    }
+  });
 });
 
 app.get('/list', (req, res) => {
