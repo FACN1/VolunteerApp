@@ -7,8 +7,12 @@
     </header>
     <form class="" action="./addvolunteer" method="post">
       <div class="mt3">
-        <label class="db fw4 lh-copy f6" for="name">Fill Name :</label>
-        <input class="input-reset ba measure w-80" type="text" id="name" name="user_name">
+        <label class="db fw4 lh-copy f6" for="name">First Name :</label>
+        <input class="input-reset ba measure w-80" type="text" id="name" name="user_fname">
+      </div>
+      <div class="mt3">
+        <label class="db fw4 lh-copy f6" for="name">Last Name :</label>
+        <input class="input-reset ba measure w-80" type="text" id="name" name="user_lname">
       </div>
       <div class="mt3">
         <label class="db fw4 lh-copy f6" for="age">Age:</label>
@@ -30,6 +34,11 @@
       <div class="mt3">
         <input class="" type="hidden" name="role_id" value = {{{role._id}}}>
       </div>
+      {{#if error}}
+        {{#each error}}
+        <p>{{this.msg}}</p>
+        {{/each }}
+      {{/if}}
       <div class="mt3">
         <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6" type="submit" value="Submit Details">
       </div>
