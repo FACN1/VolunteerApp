@@ -6,8 +6,8 @@
     <h4>{{this.start_date}}</h4>
     <h4>{{this.end_date}}</h4>
     <a href="#">More info</a>
-    <a href="form">استمارة</a>
+    <!-- Use the 'link' helper to convert the id of the role into a link -->
+    {{{link this._id}}}
   </li>
   {{/each }}
 </ul>
-

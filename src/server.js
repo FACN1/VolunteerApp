@@ -2,12 +2,11 @@ const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const mongodb = require('mongodb');
+const ObjectId = require('mongodb').ObjectID;
 require('env2')('./config.env');
 const bodyParser = require('body-parser');
 const app = express();
-
 const MongoClient = mongodb.MongoClient;
-
 const url = process.env.MONGODB_URI;
 
 // parse application/x-www-form-urlencoded
@@ -18,7 +17,13 @@ app.use(bodyParser.json());
 
 app.engine('.hbs', exphbs({
   defaultLayout: 'main',
-  extname: '.hbs'
+  extname: '.hbs',
+  helpers: {
+    // turn the id into an anchor link with href as querylink to form page
+    link: function (id) {
+      return '<a href="form?id=' + id + '">متطوع</a>';
+    }
+  }
 }));
 
 app.set('port', process.env.PORT || 8080);
@@ -37,7 +42,25 @@ app.get('/', (req, res) => {
 });
 
 app.get('/form', (req, res) => {
-  res.render('form');
+  MongoClient.connect(url, (err, db) => {
+    if (err) return ('err: ', err);
+    else {
+      const collection = db.collection('vol_roles');
+      // find collection document where id is equal to the role id
+      // make result an array to read easily, take the first element of array
+      collection.find({
+        '_id': ObjectId(req.query.id)
+      }).toArray((err, docs) => {
+        if (err) return err;
+        const data = docs[0];
+        res.render('form', {
+          // make object with role as a key and data as value to pass to view
+          role: data
+        });
+        db.close();
+      });
+    }
+  });
 });
 
 app.get('/list', (req, res) => {

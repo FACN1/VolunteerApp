@@ -1,4 +1,10 @@
   <section class = "pa4 black-80">
+    <header>
+      <h1>{{{role.role_name}}}</h1>
+      <p>{{{role.role_desc}}}</p>
+      <small>{{{role.start_date}}} until {{{role.end_date}}}</small>
+      <small>From {{{role.org_name}}}</small>
+    </header>
     <form class="" action="./addvolunteer" method="post">
       <div class="mt3">
         <label class="db fw4 lh-copy f6" for="name">Fill Name :</label>
@@ -19,6 +25,10 @@
       <div class="mt3">
         <label class="db fw4 lh-copy f6" for="mail">E-mail:</label>
         <input class="input-reset ba measure w-90" type="email" id="mail" name="user_mail">
+      </div>
+      <!-- Add a hidden input holding the role_id so it can be added to the volunteer database -->
+      <div class="mt3">
+        <input class="" type="hidden" name="role_id" value = {{{role._id}}}>
       </div>
       <div class="mt3">
         <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6" type="submit" value="Submit Details">
