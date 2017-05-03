@@ -8,7 +8,12 @@ const app = express();
 
 app.engine('.hbs', exphbs({
   defaultLayout: 'main',
-  extname: '.hbs'
+  extname: '.hbs',
+  helpers: {
+    link: function (id) {
+      return '<a href="form?' + id + '">متطوع</a>';
+    }
+  }
 }));
 
 app.set('port', process.env.PORT || 8080);
