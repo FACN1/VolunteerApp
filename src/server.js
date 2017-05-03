@@ -28,6 +28,7 @@ app.get('/', (req, res) => {
 
 app.get('/form', (req, res) => {
   res.render('form');
+});
 
 app.get('/list', (req, res) => {
   const MongoClient = mongodb.MongoClient;
@@ -52,7 +53,16 @@ app.get('/list', (req, res) => {
     }
   });
 });
-  
+
+app.get('/orgform', (req, res) => {
+  res.render('orgform');
+});
+
+app.post('/addrole', (req, res) => {
+  console.log('Get the data from the form');
+  res.redirect('/orgform');
+});
+
 app.listen(app.get('port'), () => {
   console.log('Express server running on port: ', app.get('port'));
 });
