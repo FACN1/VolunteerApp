@@ -142,30 +142,72 @@ app.post('/addrole', (req, res) => {
   }
 });
 app.post('/addvolunteer', (req, res) => {
-  MongoClient.connect(url, (err, db) => {
-    if (err) return ('Error connection to DB: ', err);
-    else {
-      console.log('connection made');
-    // object take the data from html page and put in this object
-      const role = {
-        'user_name': req.body.user_name,
-        'user_age': req.body.user_age,
-        'user_message': req.body.user_message,
-        'user_phone': req.body.user_phone,
-        'user_mail': req.body.user_mail,
-        'role_id': req.body.role_id
-      };
-    // connect to the table called vol_volunteer
-      const collection = db.collection('vol_volunteer');
-    // insert the data in db
-      collection.insert(role, {w: 1}, (err, result) => {
-        if (err) return ('Error inserting to DB: ', err);
-        db.close();
-      // redirect the information to the datasubmit page also
-        res.render('datasubmit');
-      });
-    }
-  });
+  req.checkBody('user_lname', 'First Name required').notEmpty();
+  req.checkBody('user_lname', 'First Name not valid (must only contain letters)').isAlpha();
+
+  req.checkBody('user_lname', 'Last Name required').notEmpty();
+  req.checkBody('user_lname', 'Last Name not valid (must only contain letters)').isAlpha();
+
+  req.checkBody('user_age', 'Age required (must be larger than zero)').notEmpty().isInt({gt: 0});
+
+  req.checkBody('user_message', 'Please fill in avaliability').notEmpty();
+
+  req.checkBody('user_phone', 'Please insert phone number').notEmpty().isNumeric();
+
+  req.checkBody('user_mail', 'Email required').notEmpty();
+  req.checkBody('user_mail', 'Email not valid').isEmail();
+
+  req.checkBody('role_id', 'Role Id is not a Mongo DB ID').isMongoId();
+
+  const errors = req.validationErrors();
+  if (errors) {
+    MongoClient.connect(url, (err, db) => {
+      if (err) return ('err: ', err);
+      else {
+        const collection = db.collection('vol_roles');
+        // find collection document where id is equal to the role id
+        // make result an array to read easily, take the first element of array
+        collection.find({
+          '_id': ObjectId(req.body.role_id)
+        }).toArray((err, docs) => {
+          if (err) return err;
+          const data = docs[0];
+          res.render('form', {
+            // make object with role as a key and data as value to pass to view
+            role: data,
+            error: errors
+          });
+          db.close();
+        });
+      }
+    });
+  } else {
+    MongoClient.connect(url, (err, db) => {
+      if (err) return ('Error connection to DB: ', err);
+      else {
+        console.log('connection made');
+      // object take the data from html page and put in this object
+        const role = {
+          'user_fname': req.body.user_fname,
+          'user_lname': req.body.user_lname,
+          'user_age': req.body.user_age,
+          'user_message': req.body.user_message,
+          'user_phone': req.body.user_phone,
+          'user_mail': req.body.user_mail,
+          'role_id': req.body.role_id
+        };
+      // connect to the table called vol_volunteer
+        const collection = db.collection('vol_volunteer');
+      // insert the data in db
+        collection.insert(role, {w: 1}, (err, result) => {
+          if (err) return ('Error inserting to DB: ', err);
+          db.close();
+        // redirect the information to the datasubmit page also
+          res.render('datasubmit');
+        });
+      }
+    });
+  }
 });
 
 app.listen(app.get('port'), () => {
