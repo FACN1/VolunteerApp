@@ -6,9 +6,7 @@ const ObjectId = require('mongodb').ObjectID;
 require('env2')('./config.env');
 const bodyParser = require('body-parser');
 const app = express();
-
 const MongoClient = mongodb.MongoClient;
-
 const url = process.env.MONGODB_URI;
 
 // parse application/x-www-form-urlencoded
@@ -44,14 +42,10 @@ app.get('/', (req, res) => {
 });
 
 app.get('/form', (req, res) => {
-  const MongoClient = mongodb.MongoClient;
-  const url = process.env.MONGODB_URI;
-
   MongoClient.connect(url, (err, db) => {
     if (err) return ('err: ', err);
     else {
       const collection = db.collection('vol_roles');
-
       // find collection document where id is equal to the role id
       // make result an array to read easily, take the first element of array
       collection.find({
