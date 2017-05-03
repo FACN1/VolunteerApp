@@ -35,6 +35,7 @@
     "lint"
   ],
   "dependencies": {
+    "body-parser": "^1.17.1",
     "env2": "^2.1.1",
     "express": "^4.15.2",
     "express-handlebars": "^3.0.0",
