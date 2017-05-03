@@ -17,6 +17,7 @@ app.engine('.hbs', exphbs({
   defaultLayout: 'main',
   extname: '.hbs',
   helpers: {
+    // turn the id into an anchor link with href as querylink to form page
     link: function (id) {
       return '<a href="form?id=' + id + '">متطوع</a>';
     }
@@ -46,12 +47,16 @@ app.get('/form', (req, res) => {
     if (err) return ('err: ', err);
     else {
       const collection = db.collection('vol_roles');
+
+      // find collection document where id is equal to the role id
+      // make result an array to read easily, take the first element of array
       collection.find({
         '_id': ObjectId(req.query.id)
       }).toArray((err, docs) => {
         if (err) return err;
         const data = docs[0];
         res.render('form', {
+          // make object with role as a key and data as value to pass to view
           role: data
         });
         db.close();
