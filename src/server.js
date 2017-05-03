@@ -45,7 +45,6 @@ app.get('/form', (req, res) => {
       }).toArray((err, docs) => {
         if (err) return err;
         const data = docs[0];
-        data.role_id = req.query.id;
         res.render('form', {
           role: data
         });
