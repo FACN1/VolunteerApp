@@ -128,7 +128,8 @@ app.post('/addvolunteer', (req, res) => {
         'user_age': req.body.user_age,
         'user_message': req.body.user_message,
         'user_phone': req.body.user_phone,
-        'user_mail': req.body.user_mail
+        'user_mail': req.body.user_mail,
+        'role_id': req.body.role_id
       };
     // connect to the table called vol_volunteer
       const collection = db.collection('vol_volunteer');
