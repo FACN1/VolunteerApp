@@ -76,6 +76,7 @@ app.post('/addrole', (req, res) => {
     if (err) return ('Error connection to DB: ', err);
     else {
       console.log('connection made');
+      // object take the data from html page and put in this object
       const role = {
         'org_name': req.body.org_name,
         'org_desc': req.body.org_desc,
@@ -87,10 +88,13 @@ app.post('/addrole', (req, res) => {
         'start_date': req.body.start_date,
         'end_date': req.body.end_date
       };
+      // connect to the table called vol_roles
       const collection = db.collection('vol_roles');
+      // insert the data in db
       collection.insert(role, {w: 1}, (err, result) => {
         if (err) return ('Error inserting to DB: ', err);
         db.close();
+        // redirect the information to the list page also
         res.redirect('/list');
       });
     }
