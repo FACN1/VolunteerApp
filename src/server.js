@@ -6,6 +6,10 @@ require('env2')('./config.env');
 const bodyParser = require('body-parser');
 const app = express();
 
+const MongoClient = mongodb.MongoClient;
+
+const url = process.env.MONGODB_URI;
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -37,9 +41,6 @@ app.get('/form', (req, res) => {
 });
 
 app.get('/list', (req, res) => {
-  const MongoClient = mongodb.MongoClient;
-  const url = process.env.MONGODB_URI;
-
   MongoClient.connect(url, (err, db) => {
     if (err) return ('err: ', err);
     else {
@@ -65,13 +66,6 @@ app.get('/orgform', (req, res) => {
 });
 
 app.post('/addrole', (req, res) => {
-  const mongodb = require('mongodb');
-  require('env2')('./config.env');
-
-  const MongoClient = mongodb.MongoClient;
-
-  const url = process.env.MONGODB_URI;
-
   MongoClient.connect(url, (err, db) => {
     if (err) return ('Error connection to DB: ', err);
     else {
@@ -96,6 +90,31 @@ app.post('/addrole', (req, res) => {
         db.close();
         // redirect the information to the list page also
         res.redirect('/list');
+      });
+    }
+  });
+});
+app.post('/addvolunteer', (req, res) => {
+  MongoClient.connect(url, (err, db) => {
+    if (err) return ('Error connection to DB: ', err);
+    else {
+      console.log('connection made');
+    // object take the data from html page and put in this object
+      const role = {
+        'user_name': req.body.user_name,
+        'user_age': req.body.user_age,
+        'user_message': req.body.user_message,
+        'user_phone': req.body.user_phone,
+        'user_mail': req.body.user_mail
+      };
+    // connect to the table called vol_volunteer
+      const collection = db.collection('vol_volunteer');
+    // insert the data in db
+      collection.insert(role, {w: 1}, (err, result) => {
+        if (err) return ('Error inserting to DB: ', err);
+        db.close();
+      // redirect the information to the datasubmit page also
+        res.render('datasubmit');
       });
     }
   });
