@@ -86,9 +86,17 @@ app.get('/list', (req, res) => {
     else {
       console.log('connection made');
       const collection = db.collection('vol_roles');
-      collection.find({}).toArray((err, result) => {
+      // Find the volunteer roles, sorted by start date
+      collection.find({}).sort({'start_date': 1}).toArray((err, result) => {
         if (err) res.send(err);
         else if (result.length) {
+          // loop through the dates to make them look the same
+          result.forEach((item, index) => {
+            const goodsDate = new Date(item.start_date).toDateString();
+            result[index].start_date = goodsDate;
+            const goodeDate = new Date(item.end_date).toDateString();
+            result[index].end_date = goodeDate;
+          });
           res.render('list', {
             'roleList': result
           });
@@ -159,8 +167,10 @@ app.post('/addrole', (req, res) => {
             'role_name': req.body.role_name,
             'role_desc': req.body.role_desc,
             'num_vlntr_req': req.body.num_vol,
-            'start_date': req.body.start_date,
-            'end_date': req.body.end_date
+            'start_date': new Date(req.body.start_date),
+            'end_date': new Date(req.body.end_date),
+             // add the date that the client fill the form 
+            'date_added': new Date()
           };
           // connect to the table called vol_roles
           const collection = db.collection('vol_roles');
