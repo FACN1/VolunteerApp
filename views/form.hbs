@@ -8,27 +8,48 @@
     <form class="" action="./addvolunteer" method="post">
       <div class="mt3">
         <label class="db fw4 lh-copy f6" for="name">First Name :</label>
-        <input class="input-reset ba measure w-80" type="text" id="name" name="user_fname">
+        <!--  Check if the form had been filled in, and set value of input to that if so -->
+        <input class="input-reset ba measure w-80" type="text" id="name" name="user_fname" {{#if prefilled}}
+            {{#each prefilled}}
+              value={{this.user_fname}}
+            {{/each}}
+          {{/if}}>
       </div>
       <div class="mt3">
         <label class="db fw4 lh-copy f6" for="name">Last Name :</label>
-        <input class="input-reset ba measure w-80" type="text" id="name" name="user_lname">
+        <input class="input-reset ba measure w-80" type="text" id="name" name="user_lname" {{#if prefilled}}
+            {{#each prefilled}}
+              value={{this.user_lname}}
+            {{/each}}
+          {{/if}}>
       </div>
       <div class="mt3">
         <label class="db fw4 lh-copy f6" for="age">Age:</label>
-        <input class="input-reset mw2" type="number" id="age" name="user_age">
+        <input class="input-reset ba mw3" type="number" id="age" name="user_age" {{#if prefilled}}
+            {{#each prefilled}}
+              value={{this.user_age}}
+            {{/each}}
+          {{/if}}>
       </div>
       <div class="mt3">
         <label class="db fw4 lh-copy f6" for="msg">Availability:</label>
-        <textarea class="reset b--black w-100 measure-wide" id="msg" name="user_message"></textarea>
+        <textarea class="reset b--black w-100 measure-wide" id="msg" name="user_message">{{#if prefilled}}{{#each prefilled}}{{this.user_message}}{{/each}}{{/if}}</textarea>
       </div>
       <div class="mt3">
         <label class="db fw4 lh-copy f6" for="phone">Phone Number:</label>
-        <input class="input-reset ba w-80 measure-narrow" type="number" id="phone" name="user_phone">
+        <input class="input-reset ba w-80 measure-narrow" type="number" id="phone" name="user_phone" {{#if prefilled}}
+            {{#each prefilled}}
+              value={{this.user_phone}}
+            {{/each}}
+          {{/if}}>
       </div>
       <div class="mt3">
         <label class="db fw4 lh-copy f6" for="mail">E-mail:</label>
-        <input class="input-reset ba measure w-90" type="email" id="mail" name="user_mail">
+        <input class="input-reset ba measure w-90" type="email" id="mail" name="user_mail" {{#if prefilled}}
+            {{#each prefilled}}
+              value={{this.user_mail}}
+            {{/each}}
+          {{/if}}>
       </div>
       <!-- Add a hidden input holding the role_id so it can be added to the volunteer database -->
       <div class="mt3">
@@ -36,7 +57,7 @@
       </div>
       {{#if error}}
         {{#each error}}
-        <p>{{this.msg}}</p>
+        <small class="light-red">{{this.msg}}</small><br>
         {{/each }}
       {{/if}}
       <div class="mt3">
