@@ -128,11 +128,11 @@ app.post('/addrole', (req, res) => {
   // ------------------------------------------------
   req.checkBody('start_date', 'Start Date required').notEmpty();
   req.checkBody('start_date', 'Start Date not in correct form').isISO8601();
-  req.checkBody('start_date', 'Start Date cant be in the past').isAfter();
+  req.checkBody('start_date', 'Start Date cannot be in the past').isAfter();
   // -----------------------------------------------
   req.checkBody('end_date', 'End Date required').notEmpty();
   req.checkBody('end_date', 'End Date not in correct form').isISO8601();
-  req.checkBody('end_date', 'End Date cant be in the past').isAfter();
+  req.checkBody('end_date', 'End Date cannot be in the past').isAfter();
   //
 
   req.getValidationResult().then((result) => {
