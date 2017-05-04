@@ -39,6 +39,9 @@ app.engine('.hbs', exphbs({
     // turn the id into an anchor link with href as querylink to form page
     link: function (id) {
       return '<a href="form?id=' + id + '">متطوع</a>';
+    },
+    vollink: function (id) {
+      return '<a href="volunteers?id=' + id + '">See volunteers</a>';
     }
   }
 }));
@@ -112,6 +115,7 @@ app.get('/list', (req, res) => {
 app.get('/orgform', (req, res) => {
   res.render('orgform');
 });
+
 // addrole- its deal with orgform and we validate orgform
 app.post('/addrole', (req, res) => {
   req.checkBody('org_name', 'Organisation name required').notEmpty();
@@ -169,7 +173,7 @@ app.post('/addrole', (req, res) => {
             'num_vlntr_req': req.body.num_vol,
             'start_date': new Date(req.body.start_date),
             'end_date': new Date(req.body.end_date),
-             // add the date that the client fill the form 
+             // add the date that the client fill the form
             'date_added': new Date()
           };
           // connect to the table called vol_roles
@@ -264,6 +268,53 @@ app.post('/addvolunteer', (req, res) => {
             res.render('datasubmit');
           });
         }
+      });
+    }
+  });
+});
+
+// List to show all of the roles with links to volunteers
+app.get('/organisations', (req, res) => {
+  MongoClient.connect(url, (err, db) => {
+    if (err) return ('err: ', err);
+    else {
+      console.log('connection made');
+      const collection = db.collection('vol_roles');
+      // Find the volunteer roles, sorted by start date
+      collection.find({}).sort({'start_date': 1}).toArray((err, result) => {
+        if (err) res.send(err);
+        else if (result.length) {
+          res.render('organisations', {
+            'roleList': result
+          });
+        } else {
+          res.send('No roles found');
+        }
+        db.close();
+      });
+    }
+  });
+});
+
+// Show the volunteers for the role with the id in the query
+app.get('/volunteers', (req, res) => {
+  MongoClient.connect(url, (err, db) => {
+    if (err) return ('err: ', err);
+    else {
+      const collection = db.collection('vol_volunteer');
+      // find collection document where id is equal to the role id
+      // make result an array to read easily, take the first element of array
+      collection.find({
+        'role_id': req.query.id
+      }).toArray((err, docs) => {
+        if (err) return err;
+        const data = docs;
+        console.log(data);
+        res.render('volunteers', {
+          // make object with role as a key and data as value to pass to view
+          volunteers: data
+        });
+        db.close();
       });
     }
   });
