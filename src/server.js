@@ -106,9 +106,18 @@ app.get('/orgform', (req, res) => {
 });
 
 app.post('/addrole', (req, res) => {
-  req.checkBody('org_name', 'Organisation name required').notEmpty().isAlpha();
+  req.checkBody('org_name', 'Organisation name required').notEmpty();
+  req.checkBody('org_desc', 'Organisation description required').notEmpty().isAlpha();
+  req.checkBody('user_phone', 'Phone number required').notEmpty().isInt().isLength({min: 10, max: 10});
+  req.checkBody('user_mail', 'Email required').notEmpty().isEmail();
+  req.checkBody('role_name', 'Role name required').notEmpty().isAlpha();
+  req.checkBody('role_desc', 'Role description required').notEmpty().isAlpha();
+  req.checkBody('num_vol', 'Number the Volunteer required').notEmpty().isInt({min: 1, max: 1000});
+  req.checkBody('start_date', 'Start Date required').notEmpty().isISO8601().isAfter();
+  req.checkBody('end_date', 'End Date required').notEmpty().isISO8601().isAfter();
   const errors = req.validationErrors();
   if (errors) {
+    console.log('errors found:');
     console.log(errors);
     res.redirect('/orgform');
   } else {
