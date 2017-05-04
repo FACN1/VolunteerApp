@@ -2,7 +2,7 @@
 .amiri{font-family: 'Amiri', serif;}
 
 .moreinfo.show {
-  height:200px;
+  height:300px;
   transition: height 1s;
 }
 
