@@ -3,6 +3,8 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 const mongodb = require('mongodb');
 const ObjectId = require('mongodb').ObjectID;
+const favicon = require('serve-favicon');
+
 require('env2')('./config.env');
 const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
@@ -13,6 +15,7 @@ const url = process.env.MONGODB_URI;
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use(favicon(path.join(__dirname, '../public/assets/', 'favicon.ico')));
 // parse application/json
 app.use(bodyParser.json());
 
@@ -169,7 +172,7 @@ app.post('/addrole', (req, res) => {
             'num_vlntr_req': req.body.num_vol,
             'start_date': new Date(req.body.start_date),
             'end_date': new Date(req.body.end_date),
-             // add the date that the client fill the form 
+             // add the date that the client fill the form
             'date_added': new Date()
           };
           // connect to the table called vol_roles
