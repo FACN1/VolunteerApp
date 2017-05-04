@@ -86,9 +86,17 @@ app.get('/list', (req, res) => {
     else {
       console.log('connection made');
       const collection = db.collection('vol_roles');
-      collection.find({}).toArray((err, result) => {
+      // Find the volunteer roles, sorted by start date
+      collection.find({}).sort({'start_date': 1}).toArray((err, result) => {
         if (err) res.send(err);
         else if (result.length) {
+          // loop through the dates to make them look the same
+          result.forEach((item, index) => {
+            const goodsDate = new Date(item.start_date).toDateString();
+            result[index].start_date = goodsDate;
+            const goodeDate = new Date(item.end_date).toDateString();
+            result[index].end_date = goodeDate;
+          });
           res.render('list', {
             'roleList': result
           });
@@ -104,42 +112,79 @@ app.get('/list', (req, res) => {
 app.get('/orgform', (req, res) => {
   res.render('orgform');
 });
-
+// addrole- its deal with orgform and we validate orgform
 app.post('/addrole', (req, res) => {
-  req.checkBody('org_name', 'Organisation name required').notEmpty().isAlpha();
-  const errors = req.validationErrors();
-  if (errors) {
-    console.log(errors);
-    res.redirect('/orgform');
-  } else {
-    MongoClient.connect(url, (err, db) => {
-      if (err) return ('Error connection to DB: ', err);
-      else {
-        console.log('connection made');
-        // object take the data from html page and put in this object
-        const role = {
-          'org_name': req.body.org_name,
-          'org_desc': req.body.org_desc,
-          'phone_num': req.body.user_phone,
-          'email': req.body.user_mail,
-          'role_name': req.body.role_name,
-          'role_desc': req.body.role_desc,
-          'num_vlntr_req': req.body.num_vol,
-          'start_date': req.body.start_date,
-          'end_date': req.body.end_date
-        };
-        // connect to the table called vol_roles
-        const collection = db.collection('vol_roles');
-        // insert the data in db
-        collection.insert(role, {w: 1}, (err, result) => {
-          if (err) return ('Error inserting to DB: ', err);
-          db.close();
-          // redirect the information to the list page also
-          res.redirect('/list');
-        });
-      }
-    });
-  }
+  req.checkBody('org_name', 'Organisation name required').notEmpty();
+  // -------------------------------------------
+  req.checkBody('org_desc', 'Organisation description required').notEmpty();
+  // ---------------------------------------
+  req.checkBody('user_phone', 'Phone number required').notEmpty();
+  req.checkBody('user_phone', 'Phone number not valid (must only contain numbers').isInt();
+  req.checkBody('user_phone', 'Phone number not valid (must only contain 10 digits').isLength({min: 10, max: 10});
+  req.checkBody('user_phone', 'Phone number not valid').isNumeric();
+  // ---------------------------------------------
+  req.checkBody('user_mail', 'Email required').notEmpty();
+  req.checkBody('user_mail', 'Email not valid').isEmail();
+  // ------------------------------------------------
+  req.checkBody('role_name', 'Role name required').notEmpty();
+  req.checkBody('role_name', 'Role name not valid (must only contain letters)').isAlpha();
+  // ------------------------------------------------
+  req.checkBody('role_desc', 'Role description required').notEmpty();
+  req.checkBody('role_desc', 'Role description not valid (must only contain letters)').isAlpha();
+  // -------------------------------------------------------
+  req.checkBody('num_vol', 'Number the Volunteer required').notEmpty().isInt({gt: 0});
+  // ------------------------------------------------
+  req.checkBody('start_date', 'Start Date required').notEmpty();
+  req.checkBody('start_date', 'Start Date not in correct form').isISO8601();
+  req.checkBody('start_date', 'Start Date cannot be in the past').isAfter();
+  // -----------------------------------------------
+  req.checkBody('end_date', 'End Date required').notEmpty();
+  req.checkBody('end_date', 'End Date not in correct form').isISO8601();
+  req.checkBody('end_date', 'End Date cannot be in the past').isAfter();
+  //
+
+  req.getValidationResult().then((result) => {
+    const errors = result.useFirstErrorOnly().array();
+    // if the length of the errors array its big than zero its mean we have error validate in the form and we have to deal with this errors
+    if (errors.length) {
+      // take the information we filled and put in array
+      const prefilled = [req.body];
+      res.render('orgform', {
+        error: errors,
+        prefilled: prefilled
+      });
+    } else {
+      MongoClient.connect(url, (err, db) => {
+        if (err) return ('Error connection to DB: ', err);
+        else {
+          console.log('connection made');
+          // object take the data from html page and put in this object
+          const role = {
+            'org_name': req.body.org_name,
+            'org_desc': req.body.org_desc,
+            'phone_num': req.body.user_phone,
+            'email': req.body.user_mail,
+            'role_name': req.body.role_name,
+            'role_desc': req.body.role_desc,
+            'num_vlntr_req': req.body.num_vol,
+            'start_date': new Date(req.body.start_date),
+            'end_date': new Date(req.body.end_date),
+             // add the date that the client fill the form 
+            'date_added': new Date()
+          };
+          // connect to the table called vol_roles
+          const collection = db.collection('vol_roles');
+          // insert the data in db
+          collection.insert(role, {w: 1}, (err, result) => {
+            if (err) return ('Error inserting to DB: ', err);
+            db.close();
+            // redirect the information to the list page also
+            res.redirect('/list');
+          });
+        }
+      });
+    }
+  });
 });
 app.post('/addvolunteer', (req, res) => {
   // validate the form
