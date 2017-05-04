@@ -1,2 +1,13 @@
 @import url(http://fonts.googleapis.com/earlyaccess/amiri.css);
 .amiri{font-family: 'Amiri', serif;}
+
+.moreinfo.show {
+  height:200px;
+  transition: height 1s;
+}
+
+.moreinfo {
+  height:0;
+  transition: height 1s;
+  overflow: scroll;
+}
