@@ -5,9 +5,15 @@
     <h4>{{this.org_name}}</h4>
     <h4>{{this.start_date}}</h4>
     <h4>{{this.end_date}}</h4>
-    <a href="#">More info</a>
-    <!-- Use the 'link' helper to convert the id of the role into a link -->
+    <a href="" id="moreBtn">More info</a>
+    <!-- Use the 'link' helper to convert the id of the role into a link to apply-->
     {{{link this._id}}}
+    <!-- Add hidden section with more information about the role -->
+    <section class="moreinfo" >
+      <p class="fw6">Role Description:</p><p>{{this.role_desc}}</p>
+      <p class="fw6">Organisation description:</p><p>{{this.org_desc}}</p>
+      <!-- <a class="" href="" id="closeBtn">X</a> -->
+    </section>
   </li>
   {{/each }}
 </ul>
