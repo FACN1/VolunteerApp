@@ -1,0 +1,17 @@
+{{#if volunteers}}
+<ul class="">
+  {{#each volunteers}}
+  <li>
+    <p>{{{this.user_fname}}}</p>
+    <p>{{{this.user_lname}}}</p>
+    <p>{{{this.user_age}}}</p>
+    <p>{{{this.user_message}}}</p>
+    <p>{{{this.user_phone}}}</p>
+    <p>{{{this.user_mail}}}</p>
+    <p>{{{this.role_id}}}</p>
+  </li>
+  {{/each }}
+</ul>
+{{else}}
+<h1>No volunteers yet!</h1>
+{{/if}}

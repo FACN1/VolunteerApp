@@ -1,0 +1,24 @@
+<ul class="">
+  {{#each roleList}}
+  <li>
+    <h2>{{this.role_name}}</h2>
+    <h4>{{this.org_name}}</h4>
+    <h4>{{this.start_date}}</h4>
+    <h4>{{this.end_date}}</h4>
+    <a href="" id="moreBtn">More info</a>
+    <!-- Use the 'link' helper to convert the id of the role into a link to apply-->
+    {{{vollink this._id}}}
+    <!-- Add hidden section with more information about the role -->
+    <section class="moreinfo" >
+      <p class="fw6">Role Description:</p><p>{{this.role_desc}}</p>
+      <p class="fw6">{{this.org_name}}:</p>
+      <p>{{this.org_desc}}</p>
+      <p class="fw6"> Phone Number </p>
+      <p>{{this.phone_num}}</p>
+      <p class="fw6"> Email </p>
+      <p>{{this.email}}</p>
+      <!-- <a class="" href="" id="closeBtn">X</a> -->
+    </section>
+  </li>
+  {{/each }}
+</ul>
