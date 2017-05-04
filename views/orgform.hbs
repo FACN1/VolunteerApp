@@ -7,40 +7,73 @@
   <form class="ph3 black-100" action="/addrole" method="post">
     <div class="mt3">
       <label class="db fw4 lh-copy f4" for="org-name">Name of organisation:</label>
-      <input class="pa2 input-reset ba bg-transparent w-100 measure br3" type="text" id="org-name" name="org_name">
+      <input class="pa2 input-reset ba bg-transparent w-100 measure br3" type="text" id="org-name" name="org_name" {{#if prefilled}}
+          {{#each prefilled}}
+          value={{this.org_name}}
+          {{/each}}
+        {{/if}}>
     </div>
     <div class="mt3">
       <label class="db fw4 lh-copy f4" for="org-desc">Organisation description:</label>
-      <textarea class="pa2 input-reset ba bg-transparent w-100 measure br3" id="org-desc" name="org_desc"></textarea>
+      <textarea class="pa2 input-reset ba bg-transparent w-100 measure br3" id="org-desc" name="org_desc">{{#if prefilled}}{{#each prefilled}}{{this.org_desc}}{{/each}}{{/if}}</textarea>
     </div>
     <div class="mt3">
       <label class="db fw4 lh-copy f4" for="role-name">Name of Role:</label>
-      <input class="pa2 input-reset ba bg-transparent w-100 measure br3" type="text" id="role-name" name="role_name">
+      <input class="pa2 input-reset ba bg-transparent w-100 measure br3" type="text" id="role-name" name="role_name" {{#if prefilled}}
+          {{#each prefilled}}
+            value={{this.role_name}}
+          {{/each}}
+        {{/if}}>
     </div>
     <div class="mt3">
       <label class="db" for="role-desc">Role Description:</label>
-      <textarea class="pa2 input-reset ba bg-transparent w-100 measure br3" id="role-desc" name="role_desc"></textarea>
+      <textarea class="pa2 input-reset ba bg-transparent w-100 measure br3" id="role-desc" name="role_desc"> {{#if prefilled}}{{#each prefilled}}{{this.role_desc}}{{/each}}{{/if}}</textarea>
     </div>
     <div class="mt3">
       <label class="db fw4 lh-copy f4" for="num_vol">Number of Volunteers Required:</label>
-      <input class="pa2 input-reset ba bg-transparent w-20 mw3 br3" type="number" id="num_vol" name="num_vol" min="1" step="1">
+      <input class="pa2 input-reset ba bg-transparent w-20 mw3 br3" type="number" id="num_vol" name="num_vol" min="1" step="1" {{#if prefilled}}
+          {{#each prefilled}}
+            value={{this.num_vol}}
+          {{/each}}
+        {{/if}}>
     </div>
     <div class="mt3">
       <label class="db fw4 lh-copy f4" for="start-date">Start Date:</label>
-      <input class="pa2 input-reset ba bg-transparent w-50 mw5 br3" type="date" id="start-date" name="start_date">
+      <input class="pa2 input-reset ba bg-transparent w-50 mw5 br3" type="date" id="start-date" name="start_date" {{#if prefilled}}
+          {{#each prefilled}}
+            value={{this.start_date}}
+          {{/each}}
+        {{/if}}>
     </div>
     <div class="mt3">
       <label class="db fw4 lh-copy f4" for="end_date">End Date:</label>
-      <input class="pa2 input-reset ba bg-transparent w-50 mw5 br3" type="date" id="end_date" name="end_date">
+      <input class="pa2 input-reset ba bg-transparent w-50 mw5 br3" type="date" id="end_date" name="end_date" {{#if prefilled}}
+          {{#each prefilled}}
+            value={{this.end_date}}
+          {{/each}}
+        {{/if}}>
     </div>
     <div class="mt3">
       <label class="db fw4 lh-copy f4" for="phone">Phone Number:</label>
-      <input class="pa2 input-reset ba bg-transparent w-100 measure-narrow br3" type="text" id="phone" name="user_phone">
+      <input class="pa2 input-reset ba bg-transparent w-100 measure-narrow br3" type="text" id="phone" name="user_phone" {{#if prefilled}}
+          {{#each prefilled}}
+            value={{this.user_phone}}
+          {{/each}}
+        {{/if}}>
     </div>
     <div class="mt3">
       <label class="db fw4 lh-copy f4" for="mail">E-mail:</label>
-      <input class="pa2 input-reset ba bg-transparent w-100 measure-narrow br3" type="email" id="mail" name="user_mail">
+      <input class="pa2 input-reset ba bg-transparent w-100 measure-narrow br3" type="email" id="mail" name="user_mail" {{#if prefilled}}
+          {{#each prefilled}}
+            value={{this.user_mail}}
+          {{/each}}
+        {{/if}}>
     </div>
+    {{#if error}}
+      {{#each error}}
+      <small class="light-red">{{this.msg}}</small><br>
+      {{/each }}
+    {{/if}}
     <div class="mt3">
       <input class="b ph3 input-reset ba b--black bg-transparent grow pointer f6 br3" type="submit" value="Submit Role Details">
     </div>
