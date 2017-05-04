@@ -141,7 +141,7 @@ app.post('/addrole', (req, res) => {
   req.checkBody('end_date', 'End Date required').notEmpty();
   req.checkBody('end_date', 'End Date not in correct form').isISO8601();
   req.checkBody('end_date', 'End Date cannot be in the past').isAfter();
-  //
+  // ----------------------------------------------------
 
   req.getValidationResult().then((result) => {
     const errors = result.useFirstErrorOnly().array();
@@ -169,7 +169,7 @@ app.post('/addrole', (req, res) => {
             'num_vlntr_req': req.body.num_vol,
             'start_date': new Date(req.body.start_date),
             'end_date': new Date(req.body.end_date),
-             // add the date that the client fill the form 
+           // add the date that the client fill the form
             'date_added': new Date()
           };
           // connect to the table called vol_roles
@@ -199,6 +199,7 @@ app.post('/addvolunteer', (req, res) => {
   req.checkBody('user_message', 'Please fill in avaliability').notEmpty();
 
   req.checkBody('user_phone', 'Please insert phone number').notEmpty();
+  req.checkBody('user_phone', 'Please Phone number not valid (must only contain 10 digits').isLength({min: 10, max: 10});
   req.checkBody('user_phone', 'Phone Number not valid').isNumeric();
 
   req.checkBody('user_mail', 'Email required').notEmpty();
