@@ -139,6 +139,7 @@ app.post('/addrole', (req, res) => {
     const errors = result.useFirstErrorOnly().array();
     // if the length of the errors array its big than zero its mean we have error validate in the form and we have to deal with this errors
     if (errors.length) {
+      // take the information we filled and put in array
       const prefilled = [req.body];
       res.render('orgform', {
         error: errors,

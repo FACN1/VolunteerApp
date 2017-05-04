@@ -7,6 +7,7 @@
   <form class="ph3 black-100" action="/addrole" method="post">
     <div class="mt3">
       <label class="db fw4 lh-copy f4" for="org-name">Name of organisation:</label>
+      <!-- we take what we filled and keep it in the form -->
       <input class="pa2 input-reset ba bg-transparent w-100 measure br3" type="text" id="org-name" name="org_name" {{#if prefilled}}
           {{#each prefilled}}
           value={{this.org_name}}
