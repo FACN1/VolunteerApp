@@ -112,7 +112,7 @@ app.get('/list', (req, res) => {
 });
 
 app.get('/orgform', (req, res) => {
-  res.render('orgform');
+  res.render('orgform', {'headline': 'Form for organisations - replace this with app name in arabic'});
 });
 // addrole- its deal with orgform and we validate orgform
 app.post('/addrole', (req, res) => {
@@ -267,7 +267,7 @@ app.post('/addvolunteer', (req, res) => {
             db.close();
             // redirect the information to the datasubmit page also
             res.render('datasubmit', {
-              headline: 'Application Completed'
+              headline: 'العملية تمت بنجاح'
             });
           });
         }
