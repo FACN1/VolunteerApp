@@ -23,3 +23,8 @@
 .altbg {
   background: #ecf2d6
 }
+
+.bg-leave {
+  background: url("./assets/leave.png") bottom left no-repeat;
+	background-size: 15%;
+}
