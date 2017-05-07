@@ -11,3 +11,20 @@
   transition: height 1s;
   overflow: scroll;
 }
+
+.brown {
+  color:#483318;
+}
+
+.bg-lbrown {
+  background: #DDE8B9
+}
+
+.altbg {
+  background: #ecf2d6
+}
+
+.bg-leave {
+  background: url("./assets/leave.png") bottom left no-repeat;
+	background-size: 15%;
+}

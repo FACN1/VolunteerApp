@@ -41,7 +41,7 @@ app.engine('.hbs', exphbs({
   helpers: {
     // turn the id into an anchor link with href as querylink to form page
     link: function (id) {
-      return '<a href="form?id=' + id + '">متطوع</a>';
+      return '<a class="altbg shadow-2 w3 mw4 tc brown link grow f5 ba br3 pa2 bg-leave" href="form?id=' + id + '">متطوع</a>';
     }
   }
 }));
@@ -75,7 +75,8 @@ app.get('/form', (req, res) => {
         const data = docs[0];
         res.render('form', {
           // make object with role as a key and data as value to pass to view
-          role: data
+          role: data,
+          headline: 'Application Form'
         });
         db.close();
       });
@@ -101,7 +102,8 @@ app.get('/list', (req, res) => {
             result[index].end_date = goodeDate;
           });
           res.render('list', {
-            'roleList': result
+            'roleList': result,
+            'headline': 'Opportunities'
           });
         } else {
           res.send('No roles found');
@@ -144,7 +146,7 @@ app.post('/addrole', (req, res) => {
   req.checkBody('end_date', 'End Date required').notEmpty();
   req.checkBody('end_date', 'End Date not in correct form').isISO8601();
   req.checkBody('end_date', 'End Date cannot be in the past').isAfter();
-  //
+  // ----------------------------------------------------
 
   req.getValidationResult().then((result) => {
     const errors = result.useFirstErrorOnly().array();
@@ -202,6 +204,7 @@ app.post('/addvolunteer', (req, res) => {
   req.checkBody('user_message', 'Please fill in avaliability').notEmpty();
 
   req.checkBody('user_phone', 'Please insert phone number').notEmpty();
+  req.checkBody('user_phone', 'Please Phone number not valid (must only contain 10 digits').isLength({min: 10, max: 10});
   req.checkBody('user_phone', 'Phone Number not valid').isNumeric();
 
   req.checkBody('user_mail', 'Email required').notEmpty();
@@ -236,7 +239,8 @@ app.post('/addvolunteer', (req, res) => {
             res.render('form', {
               role: data,
               error: errors,
-              prefilled: prefilled
+              prefilled: prefilled,
+              headline: 'Application Form'
             });
             db.close();
           });
@@ -264,7 +268,9 @@ app.post('/addvolunteer', (req, res) => {
             if (err) return ('Error inserting to DB: ', err);
             db.close();
             // redirect the information to the datasubmit page also
-            res.render('datasubmit');
+            res.render('datasubmit', {
+              headline: 'Application Completed'
+            });
           });
         }
       });
