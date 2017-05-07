@@ -169,7 +169,7 @@ app.post('/addrole', (req, res) => {
             'num_vlntr_req': req.body.num_vol,
             'start_date': new Date(req.body.start_date),
             'end_date': new Date(req.body.end_date),
-             // add the date that the client fill the form 
+             // add the date that the client fill the form
             'date_added': new Date()
           };
           // connect to the table called vol_roles
