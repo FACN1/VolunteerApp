@@ -129,10 +129,10 @@ app.post('/addrole', (req, res) => {
   req.checkBody('user_mail', 'Email not valid').isEmail();
   // ------------------------------------------------
   req.checkBody('role_name', 'Role name required').notEmpty();
-  req.checkBody('role_name', 'Role name not valid (must only contain letters)').isAlpha();
+
   // ------------------------------------------------
   req.checkBody('role_desc', 'Role description required').notEmpty();
-  req.checkBody('role_desc', 'Role description not valid (must only contain letters)').isAlpha();
+
   // -------------------------------------------------------
   req.checkBody('num_vol', 'Number the Volunteer required').notEmpty().isInt({gt: 0});
   // ------------------------------------------------
@@ -192,10 +192,8 @@ app.post('/addrole', (req, res) => {
 app.post('/addvolunteer', (req, res) => {
   // validate the form
   req.checkBody('user_fname', 'First Name required').notEmpty();
-  req.checkBody('user_fname', 'First Name not valid (must only contain letters)').isAlpha();
 
   req.checkBody('user_lname', 'Last Name required').notEmpty();
-  req.checkBody('user_lname', 'Last Name not valid (must only contain letters)').isAlpha();
 
   req.checkBody('user_age', 'Age required (must 15 or older)').notEmpty().isInt({gt: 15});
 
