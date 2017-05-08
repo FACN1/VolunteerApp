@@ -9,7 +9,7 @@
     </header>
     <form class="" action="./addvolunteer" method="post">
       <div class="mt3">
-        <label class="db fw4 lh-copy f6" for="name">First Name :</label>
+        <label class="db fw4 lh-copy f6" for="name">{{text.formFN}}</label>
         <!--  Check if the form had been filled in, and set value of input to that if so -->
         <input class="input-reset ba measure w-80" type="text" id="name" name="user_fname" {{#if prefilled}}
             {{#each prefilled}}
@@ -18,7 +18,7 @@
           {{/if}}>
       </div>
       <div class="mt3">
-        <label class="db fw4 lh-copy f6" for="name">Last Name :</label>
+        <label class="db fw4 lh-copy f6" for="name">{{text.formLN}}</label>
         <input class="input-reset ba measure w-80" type="text" id="name" name="user_lname" {{#if prefilled}}
             {{#each prefilled}}
               value={{this.user_lname}}
@@ -26,7 +26,7 @@
           {{/if}}>
       </div>
       <div class="mt3">
-        <label class="db fw4 lh-copy f6" for="age">Age:</label>
+        <label class="db fw4 lh-copy f6" for="age">{{text.formAge}}</label>
         <input class="input-reset ba mw3" type="number" id="age" name="user_age" {{#if prefilled}}
             {{#each prefilled}}
               value={{this.user_age}}
@@ -34,11 +34,11 @@
           {{/if}}>
       </div>
       <div class="mt3">
-        <label class="db fw4 lh-copy f6" for="msg">Availability:</label>
+        <label class="db fw4 lh-copy f6" for="msg">{{text.formAvail}}</label>
         <textarea class="reset b--black w-100 measure-wide" id="msg" name="user_message">{{#if prefilled}}{{#each prefilled}}{{this.user_message}}{{/each}}{{/if}}</textarea>
       </div>
       <div class="mt3">
-        <label class="db fw4 lh-copy f6" for="phone">Phone Number:</label>
+        <label class="db fw4 lh-copy f6" for="phone">{{text.formPhone}}</label>
         <input class="input-reset ba w-80 measure-narrow" type="number" id="phone" name="user_phone" {{#if prefilled}}
             {{#each prefilled}}
               value={{this.user_phone}}
@@ -46,7 +46,7 @@
           {{/if}}>
       </div>
       <div class="mt3">
-        <label class="db fw4 lh-copy f6" for="mail">E-mail:</label>
+        <label class="db fw4 lh-copy f6" for="mail">{{text.formEmail}}</label>
         <input class="input-reset ba measure w-90" type="email" id="mail" name="user_mail" {{#if prefilled}}
             {{#each prefilled}}
               value={{this.user_mail}}
@@ -63,7 +63,7 @@
         {{/each }}
       {{/if}}
       <div class="mt3">
-        <input class="ph3 pv2 input-reset altbg shadow-2 db tc brown link grow f6 ba br3 pa2 bg-leave" type="submit" value="Submit Details">
+        <input class="ph3 pv2 input-reset altbg shadow-2 db tc brown link grow f6 ba br3 pa2 bg-leave" type="submit" value={{text.formSubmit}}>
       </div>
     </form>
   </section>
