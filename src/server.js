@@ -114,9 +114,6 @@ app.get('/list', (req, res) => {
   });
 });
 
-app.get('/orgform', (req, res) => {
-  res.render('orgform', {'headline': 'Form for organisations - replace this with app name in arabic'});
-});
 // addrole- its deal with orgform and we validate orgform
 app.post('/addrole', (req, res) => {
   req.checkBody('org_name', 'Organisation name required').notEmpty();
@@ -274,6 +271,20 @@ app.post('/addvolunteer', (req, res) => {
       });
     }
   });
+});
+
+app.get('/login', (req, res) => {
+  res.render('login');
+});
+
+app.post('/orgform', (req, res) => {
+  if (req.body.password === process.env.PASSWORD) {
+    res.render('orgform');
+  } else {
+    res.render('login', {
+      error: 'Wrong Password'
+    });
+  }
 });
 
 app.listen(app.get('port'), () => {
