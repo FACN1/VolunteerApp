@@ -121,34 +121,76 @@ app.get('/list', (req, res) => {
 });
 // addrole- its deal with orgform and we validate orgform
 app.post('/addrole', (req, res) => {
-  req.checkBody('org_name', 'Organisation name required').notEmpty();
-  // -------------------------------------------
-  req.checkBody('org_desc', 'Organisation description required').notEmpty();
-  // ---------------------------------------
-  req.checkBody('user_phone', 'Phone number required').notEmpty();
-  req.checkBody('user_phone', 'Phone number not valid (must only contain numbers').isInt();
-  req.checkBody('user_phone', 'Phone number not valid (must only contain 10 digits').isLength({min: 10, max: 10});
-  req.checkBody('user_phone', 'Phone number not valid').isNumeric();
-  // ---------------------------------------------
-  req.checkBody('user_mail', 'Email required').notEmpty();
-  req.checkBody('user_mail', 'Email not valid').isEmail();
-  // ------------------------------------------------
-  req.checkBody('role_name', 'Role name required').notEmpty();
-
-  // ------------------------------------------------
-  req.checkBody('role_desc', 'Role description required').notEmpty();
-
-  // -------------------------------------------------------
-  req.checkBody('num_vol', 'Number the Volunteer required').notEmpty().isInt({gt: 0});
-  // ------------------------------------------------
-  req.checkBody('start_date', 'Start Date required').notEmpty();
-  req.checkBody('start_date', 'Start Date not in correct form').isISO8601();
-  req.checkBody('start_date', 'Start Date cannot be in the past').isAfter();
-  // -----------------------------------------------
-  req.checkBody('end_date', 'End Date required').notEmpty();
-  req.checkBody('end_date', 'End Date not in correct form').isISO8601();
-  req.checkBody('end_date', 'End Date cannot be in the past').isAfter();
-  // ----------------------------------------------------
+  req.checkBody({
+    'org_name': {
+      notEmpty: true,
+      errorMessage: 'Organisation name required'
+    },
+    'org_desc': {
+      notEmpty: true,
+      errorMessage: 'Organisation description required'
+    },
+    'user_phone': {
+      notEmpty: {
+        errorMessage: 'Phone number required'
+      },
+      isInt: {
+        errorMessage: 'Phone number not valid (must only contain numbers'
+      },
+      isLength: {
+        options: [{min: 9, max: 11}],
+        errorMessage: 'Phone number not valid (must only contain 10 digits'
+      }
+    },
+    'user_mail': {
+      notEmpty: {
+        errorMessage: 'Email required'
+      },
+      isEmail: {
+        errorMessage: 'Email not valid'
+      }
+    },
+    'role_name': {
+      notEmpty: true,
+      errorMessage: 'Role name required'
+    },
+    'role_desc': {
+      notEmpty: true,
+      errorMessage: 'Role description required'
+    },
+    'start_date': {
+      notEmpty: {
+        errorMessage: 'Start Date required'
+      },
+      isISO8601: {
+        errorMessage: 'Start Date in incorrect format'
+      },
+      isAfter: {
+        errorMessage: 'Start Date cannot be in the past'
+      }
+    },
+    'end_date': {
+      notEmpty: {
+        errorMessage: 'End Date required'
+      },
+      isISO8601: {
+        errorMessage: 'End Date in incorrect format'
+      },
+      isAfter: {
+        options: [req.body.start_date],
+        errorMessage: 'End Date cannot be before the start date'
+      }
+    },
+    'num_vol': {
+      notEmpty: {
+        errorMessage: 'Number of volunteers needed required'
+      },
+      isInt: {
+        options: [{gt: 0}],
+        errorMessage: 'Volunteer number must be greater than 0'
+      }
+    }
+  });
 
   req.getValidationResult().then((result) => {
     const errors = result.useFirstErrorOnly().array();
