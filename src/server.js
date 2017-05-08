@@ -109,7 +109,7 @@ app.get('/list', (req, res) => {
           res.render('list', {
             'roleList': result,
             'headline': text.listHeader,
-            text
+            text: text
           });
         } else {
           res.send('No roles found');
@@ -160,7 +160,7 @@ app.post('/addrole', (req, res) => {
         error: errors,
         prefilled: prefilled,
         headline: text.orgFormHeader,
-        text
+        text: text
       });
     } else {
       MongoClient.connect(url, (err, db) => {
@@ -190,7 +190,7 @@ app.post('/addrole', (req, res) => {
             // redirect the information to the list page also
             res.redirect('/list', {
               headline: text.listHeader,
-              text
+              text: text
             });
           });
         }
@@ -276,7 +276,7 @@ app.post('/addvolunteer', (req, res) => {
             // redirect the information to the datasubmit page also
             res.render('datasubmit', {
               headline: text.submitHeader,
-              text
+              text: text
             });
           });
         }
