@@ -41,7 +41,7 @@ module.exports = {
     title: 'Tree Of Life',
     description: 'An app to help connect volunteers with organisation look for them',
     frontPageButton: 'Volunteer!',
-    frontPageOrgButton:'Organisation Login',
+    frontPageOrgButton: 'Organisation Login',
     // list page
     listHeader: 'Opportunities',
     roleDesc: 'Role Description: ',
