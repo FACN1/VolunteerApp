@@ -5,7 +5,7 @@ module.exports = {
     description: 'هذا التطبيق عبارة عن منصة بين كل من يرغب بالتطوع ويبحث عن اطار ملائم وجمعيات باحثة عن متطوعين',
     frontPageButton: 'متطوع',
     // list page
-    listHeader: 'فرص التطوع',
+    listHeader: 'فرص لتطوع',
     roleDesc: 'تفاصيل عن العمل التطوعي',
     OrgDesc: 'شرح مختصر عن الجمعية',
     moreInfoBtn: 'للمزيد من المعلومات',
