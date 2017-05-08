@@ -14,7 +14,7 @@ const url = process.env.MONGODB_URI;
 
 // import the languages object
 const languages = require('./languages.js');
-const text = languages.arabic;
+const text = languages.english;
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -45,7 +45,7 @@ app.engine('.hbs', exphbs({
   helpers: {
     // turn the id into an anchor link with href as querylink to form page
     link: function (id) {
-      return '<a class="altbg shadow-2 w3 mw4 tc brown link grow f5 ba br3 pa2 bg-leave" href="form?id=' + id + '">متطوع</a>';
+      return '<a class="altbg shadow-2 w3 mw4 tc brown link grow f5 ba br3 pa2 bg-leave" href="form?id=' + id + '">' + text.applyButton + '</a>';
     }
   }
 }));
@@ -80,7 +80,8 @@ app.get('/form', (req, res) => {
         res.render('form', {
           // make object with role as a key and data as value to pass to view
           role: data,
-          headline: 'Application Form'
+          headline: text.formHeader,
+          text
         });
         db.close();
       });
@@ -107,7 +108,8 @@ app.get('/list', (req, res) => {
           });
           res.render('list', {
             'roleList': result,
-            'headline': 'Opportunities'
+            'headline': text.listHeader,
+            text
           });
         } else {
           res.send('No roles found');
@@ -119,7 +121,10 @@ app.get('/list', (req, res) => {
 });
 
 app.get('/orgform', (req, res) => {
-  res.render('orgform', {'headline': 'Form for organisations - replace this with app name in arabic'});
+  res.render('orgform', {
+    headline: text.orgFormHeader,
+    text
+  });
 });
 // addrole- its deal with orgform and we validate orgform
 app.post('/addrole', (req, res) => {
@@ -160,7 +165,9 @@ app.post('/addrole', (req, res) => {
       const prefilled = [req.body];
       res.render('orgform', {
         error: errors,
-        prefilled: prefilled
+        prefilled: prefilled,
+        headline: text.orgFormHeader,
+        text
       });
     } else {
       MongoClient.connect(url, (err, db) => {
@@ -188,7 +195,10 @@ app.post('/addrole', (req, res) => {
             if (err) return ('Error inserting to DB: ', err);
             db.close();
             // redirect the information to the list page also
-            res.redirect('/list');
+            res.redirect('/list', {
+              headline: text.listHeader,
+              text
+            });
           });
         }
       });
@@ -242,7 +252,8 @@ app.post('/addvolunteer', (req, res) => {
               role: data,
               error: errors,
               prefilled: prefilled,
-              headline: 'Application Form'
+              headline: text.formHeader,
+              text
             });
             db.close();
           });
@@ -271,7 +282,8 @@ app.post('/addvolunteer', (req, res) => {
             db.close();
             // redirect the information to the datasubmit page also
             res.render('datasubmit', {
-              headline: 'العملية تمت بنجاح'
+              headline: text.submitHeader,
+              text
             });
           });
         }
