@@ -12,6 +12,10 @@ const app = express();
 const MongoClient = mongodb.MongoClient;
 const url = process.env.MONGODB_URI;
 
+// import the languages object
+const languages = require('./languages.js');
+const text = languages.arabic;
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -58,7 +62,7 @@ const options = {
 app.use(express.static(path.join(__dirname, '../public'), options));
 
 app.get('/', (req, res) => {
-  res.render('home');
+  res.render('home', {text});
 });
 
 app.get('/form', (req, res) => {
