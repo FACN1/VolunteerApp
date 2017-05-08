@@ -14,7 +14,7 @@ const url = process.env.MONGODB_URI;
 
 // import the languages object
 const languages = require('./languages.js');
-const text = languages.english;
+const text = languages.arabic;
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -81,7 +81,7 @@ app.get('/form', (req, res) => {
           // make object with role as a key and data as value to pass to view
           role: data,
           headline: text.formHeader,
-          text
+          text: text
         });
         db.close();
       });
@@ -253,7 +253,7 @@ app.post('/addvolunteer', (req, res) => {
               error: errors,
               prefilled: prefilled,
               headline: text.formHeader,
-              text
+              text: text
             });
             db.close();
           });

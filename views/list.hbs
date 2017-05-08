@@ -8,14 +8,14 @@
     <h4>{{this.end_date}}</h4>
     <div class="flex justify-between w-80 center">
       <a class="altbg shadow-2 mw4 tc brown link grow f5 ba br3
-      pa2 bg-leave" href="" id="moreBtn">{{text.moreInfoBtn}}</a>
+      pa2 bg-leave" href="" id="moreBtn">{{../text.moreInfoBtn}}</a>
       <!-- Use the 'link' helper to convert the id of the role into a link to apply-->
       {{{link this._id}}}
     </div>
     <!-- Add hidden section with more information about the role -->
     <section class="moreinfo" >
-      <p class="fw6">{{text.roleDesc}}</p><p>{{this.role_desc}}</p>
-      <p class="fw6">{{text.OrgDesc}}</p><p>{{this.org_desc}}</p>
+      <p class="fw6">{{../text.roleDesc}}</p><p>{{this.role_desc}}</p>
+      <p class="fw6">{{../text.OrgDesc}}</p><p>{{this.org_desc}}</p>
       <!-- <a class="" href="" id="closeBtn">X</a> -->
     </section>
   </li>
