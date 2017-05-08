@@ -6,10 +6,7 @@ moreBtns.forEach(function (button, index) {
     event.preventDefault();
     // set the style of last child of list that the more button is on to block
     event.target.parentNode.parentNode.lastElementChild.classList.toggle('show');
-    if (event.target.innerHTML === 'More info') {
-      event.target.innerHTML = 'Less info';
-    } else {
-      event.target.innerHTML = 'More info';
-    }
+    event.target.classList.toggle('fa-angle-double-down');
+    event.target.classList.toggle('fa-angle-double-up');
   });
 });
