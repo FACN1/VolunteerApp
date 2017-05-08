@@ -58,6 +58,17 @@ module.exports = {
     // datasubmit page
     submitHeader: '',
     // org form page
-    orgFormHeader: 'Fill this With headline about Org Form'
+    orgFormHeader: 'Fill this With headline about Org Form',
+    orgFormIntro: '',
+    orgFormName: '',
+    orgFormDesc: '',
+    orgFormRolename: '',
+    orgFormRoleDesc: '',
+    orgFormVolnum: '',
+    orgFormStartdate: '',
+    orgFormEnddate: '',
+    orgFormPhonenum: '',
+    orgFormEmail: '',
+    orgFormSubmit: ''
   }
 };
