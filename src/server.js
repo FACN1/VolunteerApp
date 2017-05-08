@@ -230,10 +230,7 @@ app.post('/addrole', (req, res) => {
             if (err) return ('Error inserting to DB: ', err);
             db.close();
             // redirect the information to the list page also
-            res.redirect('/list', {
-              headline: text.listHeader,
-              text: text
-            });
+            res.redirect('/list');
           });
         }
       });
