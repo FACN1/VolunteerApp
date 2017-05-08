@@ -58,17 +58,17 @@ module.exports = {
     // datasubmit page
     submitHeader: '',
     // org form page
-    orgFormHeader: 'Fill this With headline about Org Form',
-    orgFormIntro: '',
-    orgFormName: '',
-    orgFormDesc: '',
-    orgFormRolename: '',
-    orgFormRoleDesc: '',
-    orgFormVolnum: '',
-    orgFormStartdate: '',
-    orgFormEnddate: '',
-    orgFormPhonenum: '',
-    orgFormEmail: '',
-    orgFormSubmit: ''
+    orgFormHeader: 'Add A New Volunteer Opportunity',
+    orgFormIntro: 'Tree of Life is an app that hopes to connect organisations with volunteers looking to help. As an organisation, please use the form below to fill out the details of a volunteering opportunity for which you are looking for helpers. We will then contact you with information on volunteers who register an interest.',
+    orgFormName: 'Organisation Name: ',
+    orgFormDesc: 'Organisation Description: ',
+    orgFormRolename: 'Role Name: ',
+    orgFormRoleDesc: 'Role Description: ',
+    orgFormVolnum: 'Number of Volunteers required: ',
+    orgFormStartdate: 'Start Date: ',
+    orgFormEnddate: 'End Date: ',
+    orgFormPhonenum: 'Contact Number: ',
+    orgFormEmail: 'Contact Email: ',
+    orgFormSubmit: 'Submit'
   }
 };
