@@ -14,7 +14,7 @@ const url = process.env.MONGODB_URI;
 
 // import the languages object
 const languages = require('./languages.js');
-const text = languages.arabic;
+const text = languages.english;
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));

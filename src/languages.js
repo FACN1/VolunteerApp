@@ -25,9 +25,9 @@ module.exports = {
     submitHeader: 'العملية تمت بنجاح',
     // org form page
     orgFormHeader: 'استمارة الجمعية',
-    orgFormIntro: 'مقدمة عن الجمعية',
-    orgFormName: 'اسم الجمعية',
-    orgFormDesc: 'شرح عن الجمعية',
+    orgFormIntro: 'شجرة الحياه هو تطبيق بني بهدف الربط بين المنظمات الباحثة عن متطوعين واناس يبحثون عن فرصة ملائمة لتطوع,لذلك كمنظمة باحثة عن متطوعين يرجى ملئ الاستمارة وسيتم التواصل معكم عند توافر متطوعين ملائمين',
+    orgFormName: 'اسم المنظمة',
+    orgFormDesc: 'شرح عن المنظمة',
     orgFormRolename: 'العمل التطوعي',
     orgFormRoleDesc: 'تفاصيل عن العمل التطوعي',
     orgFormVolnum: 'عدد المتطوعين',
