@@ -4,6 +4,7 @@ module.exports = {
     title: 'شجرة الحياة',
     description: 'هذا التطبيق عبارة عن منصة بين كل من يرغب بالتطوع ويبحث عن اطار ملائم وجمعيات باحثة عن متطوعين',
     frontPageButton: 'متطوع',
+    frontPageOrgButton: 'منظمة',
     // list page
     listHeader: 'فرص لتطوع',
     roleDesc: 'تفاصيل عن العمل التطوعي',
@@ -40,6 +41,7 @@ module.exports = {
     title: 'Tree Of Life',
     description: 'An app to help connect volunteers with organisation look for them',
     frontPageButton: 'Volunteer!',
+    frontPageOrgButton:'Organisation Login',
     // list page
     listHeader: 'Opportunities',
     roleDesc: 'Role Description: ',
