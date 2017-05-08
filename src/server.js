@@ -291,7 +291,10 @@ app.get('/login', (req, res) => {
 
 app.post('/orgform', (req, res) => {
   if (req.body.password === process.env.PASSWORD) {
-    res.render('orgform');
+    res.render('orgform', {
+      headline: text.orgFormHeader,
+      text: text
+    });
   } else {
     res.render('login', {
       error: 'Wrong Password'
