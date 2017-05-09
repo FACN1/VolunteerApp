@@ -13,6 +13,8 @@ module.exports = {
     lessInfoBtn: 'معلومات اقل',
     applyButton: 'تطوع',
     // volunteer form page
+    organisation: 'By Organisation: ',
+    until: 'until',
     formHeader: 'استمارة التطوع',
     formFN: 'الاسم الشخصي',
     formLN: 'اسم العائلة',
@@ -64,7 +66,8 @@ module.exports = {
     orgPhoneIsIntError: 'ادخل ارقام فقط',
     orgPhoneLengthError: 'ادخل رقم هاتف يحتوي على 10 خانات',
     orgEmailError: 'ادخل البريد الالكتروني',
-    orgIsEmailError: 'ادخل البريد الالكتروني بالصيغة الصحيحة'
+    orgIsEmailError: 'ادخل البريد الالكتروني بالصيغة الصحيحة',
+    mongoIDError: 'Something went wrong with the database ID'
 
   },
   english: {
@@ -79,6 +82,8 @@ module.exports = {
     moreInfoBtn: 'More Info',
     applyButton: 'Apply',
     // volunteer form page
+    organisation: 'By Organisation: ',
+    until: 'until',
     formHeader: 'Application Form',
     formFN: 'First Name',
     formLN: 'Last Name',
@@ -88,18 +93,18 @@ module.exports = {
     formEmail: 'Email Address:',
     formSubmit: 'Submit Details',
     // validate volunteer form
-    volFormFNErorr: '',
-    volFormLNErorr: '',
-    volFormAgeErorr: '',
-    volFormAgeISintErorr: '',
-    volFormAvailErorr: '',
-    volFormPhoneEmptyErorr: '',
-    volFormPhoneIsIntError: '',
-    volFormPhoneLengthError: '',
-    volFormEmailError: '',
-    volFormIsEmailError: '',
+    volFormFNErorr: 'First Name required',
+    volFormLNErorr: 'Last Name required',
+    volFormAgeErorr: 'Age required',
+    volFormAgeISintErorr: 'Age must be a number over 15',
+    volFormAvailErorr: 'Please add avaliability',
+    volFormPhoneEmptyErorr: 'Phone number required',
+    volFormPhoneIsIntError: 'Phone number must be only numbers',
+    volFormPhoneLengthError: 'Phone number length must be between 9 and 11 characters',
+    volFormEmailError: 'Email required',
+    volFormIsEmailError: 'Email is in wrong format',
     // datasubmit page
-    submitHeader: '',
+    submitHeader: 'Your details have been added to the database',
     // org form page
     orgFormHeader: 'Add A New Volunteer Opportunity',
     orgFormIntro: 'Tree of Life is an app that hopes to connect organisations with volunteers looking to help. As an organisation, please use the form below to fill out the details of a volunteering opportunity for which you are looking for helpers. We will then contact you with information on volunteers who register an interest.',
@@ -115,22 +120,22 @@ module.exports = {
     orgFormSubmit: 'Submit',
     // validate orgForm
     orgNameError: 'Organisation Name Required',
-    orgDescError: 'ادخل شرح عن المنظمة',
-    orgRolenameError: 'ادخل اسم العمل التطوعي',
-    orgRoleDescError: 'ادخل شرح عن العمل التطوعي',
-    orgVolnumError: 'ادخل عدد المتطوعين',
-    orgVolnumIntError: 'ادخل عدد متطوعين اكبر من صفر',
-    orgStartdateError: 'ادخل تاريخ البداية',
-    orgStartdateFormtError: 'ادخل التاريخ بالصيغة الصحيحة',
-    orgStartdateIsAfterError: 'ادخل تاريخ ملائم',
-    orgEnddateError: 'ادخل تاريخ الانتهاء',
-    orgEnddateFormtError: 'ادخل التاريخ بالصيغة الصحيحة',
-    orgEnddateIsAfterError: 'ادخل التاريخ الملائم',
-    orgPhoneEmptyError: 'ادخل رقم الهاتف',
-    orgPhoneIsIntError: '',
-    orgPhoneLengthError: 'اخل رقم هاتف يحتوي على 10 خانات',
-    orgEmailError: 'ادخل البريد الالكتروني',
-    orgIsEmailError: 'ادخل البريد الالكتروني بصيغة صحيحة'
-
+    orgDescError: 'Organisation Description Required',
+    orgRolenameError: 'Role Name required',
+    orgRoleDescError: 'Role description required',
+    orgVolnumError: 'Please specify the number of volunteers you need',
+    orgVolnumIntError: 'Volunteer number must be a number',
+    orgStartdateError: 'Start date required',
+    orgStartdateFormtError: 'Start date in the wrong format (please use the calendar)',
+    orgStartdateIsAfterError: 'Start date cannot be in the past',
+    orgEnddateError: 'End date required',
+    orgEnddateFormtError: 'End date in the wrong format (please use the calendar)',
+    orgEnddateIsAfterError: 'End date cannot be before the start date',
+    orgPhoneEmptyError: 'Contact number required',
+    orgPhoneIsIntError: 'Phone number in wrong format',
+    orgPhoneLengthError: 'Phone number is the wrong length',
+    orgEmailError: 'Email required',
+    orgIsEmailError: 'Email not in correct format',
+    mongoIDError: 'Something went wrong with the database ID'
   }
 };
