@@ -98,8 +98,15 @@ app.post('/langChange', (req, res) => {
   // change the locals
   app.locals.dir = dir;
   app.locals.text = text;
-  // redirect back to the page the post request came from
-  res.redirect(req.headers.referer);
+
+  // redirect back to the page the post request came from unless from 2 specific pages
+  if (req.headers.referer === 'http://localhost:8080/addvolunteer') {
+    res.redirect('list');
+  } else if ((req.headers.referer === 'http://localhost:8080/orgform') || (req.headers.referer === 'http://localhost:8080/addrole')) {
+    res.redirect('login');
+  } else {
+    res.redirect(req.headers.referer);
+  }
 });
 
 app.get('/form', (req, res) => {
@@ -229,8 +236,6 @@ app.post('/addvolunteer', (req, res) => {
             const data = docs[0];
             // must send as an array to handlebars
             const prefilled = [req.body];
-            console.log(prefilled);
-            console.log(errors);
             // render form with error data and already filled in inputs
             res.render('form', {
               role: data,
