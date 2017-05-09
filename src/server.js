@@ -61,20 +61,43 @@ app.engine('.hbs', exphbs({
     }
   }
 }));
-
-app.set('port', process.env.PORT || 8080);
 app.set('view engine', '.hbs');
 
+// serve static files
 const options = {
   dotfiles: 'ignore',
   extensions: ['htm', 'html'],
   index: false
 };
-
 app.use(express.static(path.join(__dirname, '../public'), options));
 
+// set the response locals to the same as the app locals
+app.use((req, res, next) => {
+  res.locals = app.locals;
+  next();
+});
+
 app.get('/', (req, res) => {
-  res.render('home', {text});
+  res.render('home');
+});
+
+// Handler for the language change radio button
+app.post('/langChange', (req, res) => {
+  // Get the language selected
+  language = req.body.language;
+  // set text to the language selected
+  text = languages[language];
+  // change the text direction for the language
+  if (language === 'english') {
+    dir = 'ltr';
+  } else {
+    dir = 'rtl';
+  }
+  // change the locals
+  app.locals.dir = dir;
+  app.locals.text = text;
+  // redirect back to the page the post request came from
+  res.redirect(req.headers.referer);
 });
 
 app.get('/form', (req, res) => {
