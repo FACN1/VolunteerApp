@@ -40,7 +40,7 @@ module.exports = {
   english: {
     title: 'Tree Of Life',
     description: 'An app to help connect volunteers with organisation look for them',
-    frontPageButton: 'Volunteer!',
+    frontPageButton: 'Volunteer Now!',
     frontPageOrgButton: 'Organisation Login',
     // list page
     listHeader: 'Opportunities',
