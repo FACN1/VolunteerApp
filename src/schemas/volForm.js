@@ -45,6 +45,11 @@ module.exports = (req, text) => {
       isEmail: {
         errorMessage: text.volFormIsEmailError
       }
+    },
+    'role_id': {
+      isMongoId: {
+        errorMessage: text.mongoIDError
+      }
     }
   };
   return schema;
