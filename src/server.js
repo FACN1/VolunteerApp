@@ -122,7 +122,7 @@ app.get('/list', (req, res) => {
 });
 // addrole- its deal with orgform and we validate orgform
 app.post('/addrole', (req, res) => {
-  req.checkBody(schema.orgForm(req));
+  req.checkBody(schema.orgForm(req, text));
 
   req.getValidationResult().then((result) => {
     const errors = result.useFirstErrorOnly().array();

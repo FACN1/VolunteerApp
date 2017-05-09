@@ -71,6 +71,7 @@ module.exports = {
     orgFormEnddate: 'End Date: ',
     orgFormPhonenum: 'Contact Number: ',
     orgFormEmail: 'Contact Email: ',
-    orgFormSubmit: 'Submit'
+    orgFormSubmit: 'Submit',
+    orgNameError: 'Organisation Name Required'
   }
 };

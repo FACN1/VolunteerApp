@@ -1,8 +1,8 @@
-module.exports = (req) => {
+module.exports = (req, text) => {
   const schema = {
     'org_name': {
       notEmpty: true,
-      errorMessage: 'Organisation name required'
+      errorMessage: text.orgNameError
     },
     'org_desc': {
       notEmpty: true,
