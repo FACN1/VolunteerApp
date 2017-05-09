@@ -67,8 +67,8 @@ module.exports = {
     orgPhoneLengthError: 'ادخل رقم هاتف يحتوي على 10 خانات',
     orgEmailError: 'ادخل البريد الالكتروني',
     orgIsEmailError: 'ادخل البريد الالكتروني بالصيغة الصحيحة',
-    mongoIDError: 'Something went wrong with the database ID'
-
+    mongoIDError: 'Something went wrong with the database ID',
+    password: 'كلمة مرور'
   },
   english: {
     title: 'Tree Of Life',
@@ -136,6 +136,7 @@ module.exports = {
     orgPhoneLengthError: 'Phone number is the wrong length',
     orgEmailError: 'Email required',
     orgIsEmailError: 'Email not in correct format',
-    mongoIDError: 'Something went wrong with the database ID'
+    mongoIDError: 'Something went wrong with the database ID',
+    password: 'Password:'
   }
 };
