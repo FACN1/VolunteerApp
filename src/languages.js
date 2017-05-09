@@ -68,7 +68,9 @@ module.exports = {
     orgEmailError: 'ادخل البريد الالكتروني',
     orgIsEmailError: 'ادخل البريد الالكتروني بالصيغة الصحيحة',
     mongoIDError: 'هناك خلل في قاعدة البيانات',
-    password: 'كلمة المرور'
+    password: 'كلمة المرور',
+    passwordSubmit: 'اضغط',
+    wrongPassword: 'كلمة المرور خاطئة'
   },
   english: {
     title: 'Tree Of Life',
@@ -137,6 +139,8 @@ module.exports = {
     orgEmailError: 'Email required',
     orgIsEmailError: 'Email not in correct format',
     mongoIDError: 'Something went wrong with the database ID',
-    password: 'Password:'
+    password: 'Password:',
+    passwordSubmit: 'Submit',
+    wrongPassword: 'Wrong Password'
   }
 };
