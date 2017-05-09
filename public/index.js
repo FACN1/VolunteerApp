@@ -10,3 +10,9 @@ moreBtns.forEach(function (button, index) {
     event.target.classList.toggle('fa-angle-double-up');
   });
 });
+
+var languageBtn = document.querySelector('#languageBtn');
+
+languageBtn.addEventListener('change', function (event) {
+  this.submit();
+});

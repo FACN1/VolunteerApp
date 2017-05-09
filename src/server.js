@@ -13,14 +13,25 @@ const app = express();
 const MongoClient = mongodb.MongoClient;
 const url = process.env.MONGODB_URI;
 
-// import the languages object
+// import the languages object and set the default language and text dir for arabic
 const languages = require('./languages.js');
-const text = languages.arabic;
+let language = 'arabic';
+let text = languages[language];
+let dir = 'rtl';
+
+// set the port
+app.set('port', process.env.PORT || 8080);
+
+// set the local variables of the language
+app.locals.dir = dir;
+app.locals.text = text;
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// serve the favicon
 app.use(favicon(path.join(__dirname, '../public/assets/', 'favicon.ico')));
+
 // parse application/json
 app.use(bodyParser.json());
 
@@ -40,6 +51,8 @@ app.use(expressValidator({
     };
   }
 }));
+
+// set up handlebars
 app.engine('.hbs', exphbs({
   defaultLayout: 'main',
   extname: '.hbs',
@@ -50,20 +63,43 @@ app.engine('.hbs', exphbs({
     }
   }
 }));
-
-app.set('port', process.env.PORT || 8080);
 app.set('view engine', '.hbs');
 
+// serve static files
 const options = {
   dotfiles: 'ignore',
   extensions: ['htm', 'html'],
   index: false
 };
-
 app.use(express.static(path.join(__dirname, '../public'), options));
 
+// set the response locals to the same as the app locals
+app.use((req, res, next) => {
+  res.locals = app.locals;
+  next();
+});
+
 app.get('/', (req, res) => {
-  res.render('home', {text});
+  res.render('home');
+});
+
+// Handler for the language change radio button
+app.post('/langChange', (req, res) => {
+  // Get the language selected
+  language = req.body.language;
+  // set text to the language selected
+  text = languages[language];
+  // change the text direction for the language
+  if (language === 'english') {
+    dir = 'ltr';
+  } else {
+    dir = 'rtl';
+  }
+  // change the locals
+  app.locals.dir = dir;
+  app.locals.text = text;
+  // redirect back to the page the post request came from
+  res.redirect(req.headers.referer);
 });
 
 app.get('/form', (req, res) => {
@@ -81,8 +117,7 @@ app.get('/form', (req, res) => {
         res.render('form', {
           // make object with role as a key and data as value to pass to view
           role: data,
-          headline: text.formHeader,
-          text: text
+          headline: text.formHeader
         });
         db.close();
       });
@@ -109,8 +144,7 @@ app.get('/list', (req, res) => {
           });
           res.render('list', {
             'roleList': result,
-            'headline': text.listHeader,
-            text: text
+            'headline': text.listHeader
           });
         } else {
           res.send('No roles found');
@@ -133,8 +167,7 @@ app.post('/addrole', (req, res) => {
       res.render('orgform', {
         error: errors,
         prefilled: prefilled,
-        headline: text.orgFormHeader,
-        text: text
+        headline: text.orgFormHeader
       });
     } else {
       MongoClient.connect(url, (err, db) => {
@@ -162,7 +195,9 @@ app.post('/addrole', (req, res) => {
             if (err) return ('Error inserting to DB: ', err);
             db.close();
             // redirect the information to the list page also
-            res.redirect('/list');
+            res.redirect('/list', {
+              headline: text.listHeader
+            });
           });
         }
       });
@@ -201,8 +236,7 @@ app.post('/addvolunteer', (req, res) => {
               role: data,
               error: errors,
               prefilled: prefilled,
-              headline: text.formHeader,
-              text: text
+              headline: text.formHeader
             });
             db.close();
           });
@@ -231,8 +265,7 @@ app.post('/addvolunteer', (req, res) => {
             db.close();
             // redirect the information to the datasubmit page also
             res.render('datasubmit', {
-              headline: text.submitHeader,
-              text: text
+              headline: text.submitHeader
             });
           });
         }
@@ -248,8 +281,7 @@ app.get('/login', (req, res) => {
 app.post('/orgform', (req, res) => {
   if (req.body.password === process.env.PASSWORD) {
     res.render('orgform', {
-      headline: text.orgFormHeader,
-      text: text
+      headline: text.orgFormHeader
     });
   } else {
     res.render('login', {

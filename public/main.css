@@ -28,3 +28,7 @@
   background: url("./assets/leave.png") bottom left no-repeat;
 	background-size: 12%;
 }
+
+.left-3 {
+  left:4rem;
+}
