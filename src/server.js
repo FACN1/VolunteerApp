@@ -4,6 +4,8 @@ const exphbs = require('express-handlebars');
 const mongodb = require('mongodb');
 const ObjectId = require('mongodb').ObjectID;
 const favicon = require('serve-favicon');
+const schema = require('./schemas/index.js');
+
 require('env2')('./config.env');
 const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
@@ -154,34 +156,7 @@ app.get('/list', (req, res) => {
 });
 // addrole- its deal with orgform and we validate orgform
 app.post('/addrole', (req, res) => {
-  req.checkBody('org_name', 'Organisation name required').notEmpty();
-  // -------------------------------------------
-  req.checkBody('org_desc', 'Organisation description required').notEmpty();
-  // ---------------------------------------
-  req.checkBody('user_phone', 'Phone number required').notEmpty();
-  req.checkBody('user_phone', 'Phone number not valid (must only contain numbers').isInt();
-  req.checkBody('user_phone', 'Phone number not valid (must only contain 10 digits').isLength({min: 10, max: 10});
-  req.checkBody('user_phone', 'Phone number not valid').isNumeric();
-  // ---------------------------------------------
-  req.checkBody('user_mail', 'Email required').notEmpty();
-  req.checkBody('user_mail', 'Email not valid').isEmail();
-  // ------------------------------------------------
-  req.checkBody('role_name', 'Role name required').notEmpty();
-
-  // ------------------------------------------------
-  req.checkBody('role_desc', 'Role description required').notEmpty();
-
-  // -------------------------------------------------------
-  req.checkBody('num_vol', 'Number the Volunteer required').notEmpty().isInt({gt: 0});
-  // ------------------------------------------------
-  req.checkBody('start_date', 'Start Date required').notEmpty();
-  req.checkBody('start_date', 'Start Date not in correct form').isISO8601();
-  req.checkBody('start_date', 'Start Date cannot be in the past').isAfter();
-  // -----------------------------------------------
-  req.checkBody('end_date', 'End Date required').notEmpty();
-  req.checkBody('end_date', 'End Date not in correct form').isISO8601();
-  req.checkBody('end_date', 'End Date cannot be in the past').isAfter();
-  // ----------------------------------------------------
+  req.checkBody(schema.orgForm(req, text));
 
   req.getValidationResult().then((result) => {
     const errors = result.useFirstErrorOnly().array();
@@ -231,22 +206,7 @@ app.post('/addrole', (req, res) => {
 });
 app.post('/addvolunteer', (req, res) => {
   // validate the form
-  req.checkBody('user_fname', 'First Name required').notEmpty();
-
-  req.checkBody('user_lname', 'Last Name required').notEmpty();
-
-  req.checkBody('user_age', 'Age required (must 15 or older)').notEmpty().isInt({gt: 15});
-
-  req.checkBody('user_message', 'Please fill in avaliability').notEmpty();
-
-  req.checkBody('user_phone', 'Please insert phone number').notEmpty();
-  req.checkBody('user_phone', 'Please Phone number not valid (must only contain 10 digits').isLength({min: 10, max: 10});
-  req.checkBody('user_phone', 'Phone Number not valid').isNumeric();
-
-  req.checkBody('user_mail', 'Email required').notEmpty();
-  req.checkBody('user_mail', 'Email not valid').isEmail();
-
-  req.checkBody('role_id', 'Role Id is not a Mongo DB ID').isMongoId();
+  req.checkBody(schema.volForm(req, text));
 
   // get the result asynchonously
   req.getValidationResult().then((result) => {
