@@ -13,8 +13,8 @@ module.exports = {
     lessInfoBtn: 'معلومات اقل',
     applyButton: 'تطوع',
     // volunteer form page
-    organisation: 'By Organisation: ',
-    until: 'until',
+    organisation: 'المنظمة',
+    until: 'حتى',
     formHeader: 'استمارة التطوع',
     formFN: 'الاسم الشخصي',
     formLN: 'اسم العائلة',
