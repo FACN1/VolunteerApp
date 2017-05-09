@@ -6,71 +6,71 @@ module.exports = (req, text) => {
     },
     'org_desc': {
       notEmpty: true,
-      errorMessage: 'Organisation description required'
+      errorMessage: text.orgDescError
     },
     'user_phone': {
       notEmpty: {
-        errorMessage: 'Phone number required'
+        errorMessage: text.orgPhoneEmptyError
       },
       isInt: {
-        errorMessage: 'Phone number not valid (must only contain numbers'
+        errorMessage: text.orgPhoneIsIntError
       },
       isLength: {
         options: [{
           min: 9,
           max: 11
         }],
-        errorMessage: 'Phone number not valid (must only contain 10 digits'
+        errorMessage: text.orgPhoneLengthError
       }
     },
     'user_mail': {
       notEmpty: {
-        errorMessage: 'Email required'
+        errorMessage: text.orgEmailError
       },
       isEmail: {
-        errorMessage: 'Email not valid'
+        errorMessage: text.orgIsEmailError
       }
     },
     'role_name': {
       notEmpty: true,
-      errorMessage: 'Role name required'
+      errorMessage: text.orgRolenameError
     },
     'role_desc': {
       notEmpty: true,
-      errorMessage: 'Role description required'
+      errorMessage: text.orgRoleDescError
     },
     'start_date': {
       notEmpty: {
-        errorMessage: 'Start Date required'
+        errorMessage: text.orgStartdateError
       },
       isISO8601: {
-        errorMessage: 'Start Date in incorrect format'
+        errorMessage: text.orgStartdateFormtError
       },
       isAfter: {
-        errorMessage: 'Start Date cannot be in the past'
+        errorMessage: text.orgStartdateIsAfterError
       }
     },
     'end_date': {
       notEmpty: {
-        errorMessage: 'End Date required'
+        errorMessage: text.orgEnddateError
       },
       isISO8601: {
-        errorMessage: 'End Date in incorrect format'
+        errorMessage: text.orgEnddateFormtError
       },
       isAfter: {
         options: [req.body.start_date],
-        errorMessage: 'End Date cannot be before the start date'
+        errorMessage: text.orgEnddateIsAfterError
       }
     },
     'num_vol': {
       notEmpty: {
-        errorMessage: 'Number of volunteers needed required'
+        errorMessage: text.orgVolnumError
       },
       isInt: {
         options: [{
           gt: 0
         }],
-        errorMessage: 'Volunteer number must be greater than 0'
+        errorMessage: text.orgVolnumIntError
       }
     }
   };

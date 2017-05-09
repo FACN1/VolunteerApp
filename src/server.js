@@ -15,7 +15,7 @@ const url = process.env.MONGODB_URI;
 
 // import the languages object
 const languages = require('./languages.js');
-const text = languages.english;
+const text = languages.arabic;
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -171,21 +171,7 @@ app.post('/addrole', (req, res) => {
 });
 app.post('/addvolunteer', (req, res) => {
   // validate the form
-  req.checkBody('user_fname', 'First Name required').notEmpty();
-
-  req.checkBody('user_lname', 'Last Name required').notEmpty();
-
-  req.checkBody('user_age', 'Age required (must 15 or older)').notEmpty().isInt({gt: 15});
-
-  req.checkBody('user_message', 'Please fill in avaliability').notEmpty();
-
-  req.checkBody('user_phone', 'Please insert phone number').notEmpty();
-  req.checkBody('user_phone', 'Please Phone number not valid (must only contain 10 digits').isLength({min: 10, max: 10});
-  req.checkBody('user_phone', 'Phone Number not valid').isNumeric();
-
-  req.checkBody('user_mail', 'Email required').notEmpty();
-  req.checkBody('user_mail', 'Email not valid').isEmail();
-
+  req.checkBody(schema.volForm(req, text));
   req.checkBody('role_id', 'Role Id is not a Mongo DB ID').isMongoId();
 
   // get the result asynchonously

@@ -6,12 +6,12 @@ module.exports = {
     frontPageButton: 'متطوع',
     frontPageOrgButton: 'منظمة',
     // list page
-    listHeader: 'فرص لتطوع',
+    listHeader: 'فرص للتطوع',
     roleDesc: 'تفاصيل عن العمل التطوعي',
     OrgDesc: 'شرح مختصر عن الجمعية',
     moreInfoBtn: 'للمزيد من المعلومات',
     lessInfoBtn: 'معلومات اقل',
-    applyButton: 'لتطوع',
+    applyButton: 'تطوع',
     // volunteer form page
     formHeader: 'استمارة التطوع',
     formFN: 'الاسم الشخصي',
@@ -21,11 +21,22 @@ module.exports = {
     formPhone: 'رقم الهاتف',
     formEmail: 'البريد الالكتروني:',
     formSubmit: 'ارسل',
+    // validate volunteer form
+    volFormFNErorr: 'ادخل الاسم الشخصي',
+    volFormLNErorr: 'ادخل اسم العائلة',
+    volFormAgeErorr: 'ادخل عمرك',
+    volFormAgeISintErorr: 'العمر 16 وما فوق',
+    volFormAvailErorr: 'ادخل امكانية التطوع',
+    volFormPhoneEmptyErorr: 'ادخل رقم الهاتف',
+    volFormPhoneIsIntError: 'ادخل ارقام فقط',
+    volFormPhoneLengthError: 'ادخل رقم هاتف يحتوي على 10 خانات',
+    volFormEmailError: 'ادخل البريد الالكتروني',
+    volFormIsEmailError: 'ادخل البريد الالكتروني بالصيغة الصحيحه',
     // datasubmit page
     submitHeader: 'العملية تمت بنجاح',
     // org form page
     orgFormHeader: 'استمارة الجمعية',
-    orgFormIntro: 'شجرة الحياه هو تطبيق بني بهدف الربط بين المنظمات الباحثة عن متطوعين واناس يبحثون عن فرصة ملائمة لتطوع,لذلك كمنظمة باحثة عن متطوعين يرجى ملئ الاستمارة وسيتم التواصل معكم عند توافر متطوعين ملائمين',
+    orgFormIntro: 'شجرة الحياة هو تطبيق بني بهدف الربط بين المنظمات الباحثة عن متطوعين وبين اناس راغبين بالتطوع باطار منظم ,لذلك كمنظمة يرجى تعبئة الاستمارة وسيتم التواصل معكم عن توافر عدد المتطوعين الملائم',
     orgFormName: 'اسم المنظمة',
     orgFormDesc: 'شرح عن المنظمة',
     orgFormRolename: 'العمل التطوعي',
@@ -35,7 +46,26 @@ module.exports = {
     orgFormEnddate: 'تاريخ الانتهاء',
     orgFormPhonenum: 'رقم الهاتف',
     orgFormEmail: 'البريد الالكتروني',
-    orgFormSubmit: 'ارسل'
+    orgFormSubmit: 'ارسل',
+    // validate orgForm
+    orgNameError: 'ادخل اسم المنظمة',
+    orgDescError: 'ادخل شرح عن المنظمة',
+    orgRolenameError: 'ادخل اسم العمل التطوعي',
+    orgRoleDescError: 'ادخل شرح عن العمل التطوعي',
+    orgVolnumError: 'ادخل عدد المتطوعين',
+    orgVolnumIntError: 'ادخل عدد متطوعين اكبر من صفر',
+    orgStartdateError: 'ادخل تاريخ البداية',
+    orgStartdateFormtError: 'ادخل التاريخ بالصيغة الصحيحة',
+    orgStartdateIsAfterError: 'ادخل تاريخ ملائم',
+    orgEnddateError: 'ادخل تاريخ الانتهاء',
+    orgEnddateFormtError: 'ادخل التاريخ بالصيغة الصحيحة',
+    orgEnddateIsAfterError: 'ادخل التاريخ الملائم',
+    orgPhoneEmptyError: 'ادخل رقم الهاتف',
+    orgPhoneIsIntError: 'ادخل ارقام فقط',
+    orgPhoneLengthError: 'ادخل رقم هاتف يحتوي على 10 خانات',
+    orgEmailError: 'ادخل البريد الالكتروني',
+    orgIsEmailError: 'ادخل البريد الالكتروني بالصيغة الصحيحة'
+
   },
   english: {
     title: 'Tree Of Life',
@@ -57,6 +87,17 @@ module.exports = {
     formPhone: 'Phone Number',
     formEmail: 'Email Address:',
     formSubmit: 'Submit Details',
+    // validate volunteer form
+    volFormFNErorr: '',
+    volFormLNErorr: '',
+    volFormAgeErorr: '',
+    volFormAgeISintErorr: '',
+    volFormAvailErorr: '',
+    volFormPhoneEmptyErorr: '',
+    volFormPhoneIsIntError: '',
+    volFormPhoneLengthError: '',
+    volFormEmailError: '',
+    volFormIsEmailError: '',
     // datasubmit page
     submitHeader: '',
     // org form page
@@ -72,6 +113,24 @@ module.exports = {
     orgFormPhonenum: 'Contact Number: ',
     orgFormEmail: 'Contact Email: ',
     orgFormSubmit: 'Submit',
-    orgNameError: 'Organisation Name Required'
+    // validate orgForm
+    orgNameError: 'Organisation Name Required',
+    orgDescError: 'ادخل شرح عن المنظمة',
+    orgRolenameError: 'ادخل اسم العمل التطوعي',
+    orgRoleDescError: 'ادخل شرح عن العمل التطوعي',
+    orgVolnumError: 'ادخل عدد المتطوعين',
+    orgVolnumIntError: 'ادخل عدد متطوعين اكبر من صفر',
+    orgStartdateError: 'ادخل تاريخ البداية',
+    orgStartdateFormtError: 'ادخل التاريخ بالصيغة الصحيحة',
+    orgStartdateIsAfterError: 'ادخل تاريخ ملائم',
+    orgEnddateError: 'ادخل تاريخ الانتهاء',
+    orgEnddateFormtError: 'ادخل التاريخ بالصيغة الصحيحة',
+    orgEnddateIsAfterError: 'ادخل التاريخ الملائم',
+    orgPhoneEmptyError: 'ادخل رقم الهاتف',
+    orgPhoneIsIntError: '',
+    orgPhoneLengthError: 'اخل رقم هاتف يحتوي على 10 خانات',
+    orgEmailError: 'ادخل البريد الالكتروني',
+    orgIsEmailError: 'ادخل البريد الالكتروني بصيغة صحيحة'
+
   }
 };
