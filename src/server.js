@@ -172,7 +172,6 @@ app.post('/addrole', (req, res) => {
 app.post('/addvolunteer', (req, res) => {
   // validate the form
   req.checkBody(schema.volForm(req, text));
-  req.checkBody('role_id', 'Role Id is not a Mongo DB ID').isMongoId();
 
   // get the result asynchonously
   req.getValidationResult().then((result) => {
