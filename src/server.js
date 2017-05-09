@@ -285,7 +285,7 @@ app.post('/orgform', (req, res) => {
     });
   } else {
     res.render('login', {
-      error: 'Wrong Password'
+      error: text.wrongPassword
     });
   }
 });
