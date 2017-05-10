@@ -1,4 +1,6 @@
 # VolunteerApp
+
+A platform to connect organisations looking for volunteers with (young) people looking for opportunities to volunteer.
 ---
 ## Goals
   * Facilitate the process of matching organisations and volunteers.
@@ -55,35 +57,35 @@ As an organisation,
 ## User Testing Feedback
 
 - Readme doesn't explain site:
-  - [ ] Make readme better
+  - [x] Make readme better
 
 - Colour scheme causes clashes:
-  - [ ] Make a more focused colour scheme
+  - [x] Make a more focused colour scheme
 
 - Home page overflow:
- - [ ] Redesign home page, ensure it all fits on one page
+ - [x] Redesign home page, ensure it all fits on one page
 
 - General Design:
- - [ ] Make it look more like an app
+ - [x] Make it look more like an app
 
 - No form validation:
- - [ ] Make sure we validate the form inputs
+ - [x] Make sure we validate the form inputs
 
 - Number of applicants so far
- - [ ] We shouldn't limit the number of applicants, so maybe the applicants don't need to know how many other people have applied - have a "no volunteers yet" label
+ - [x] We shouldn't limit the number of applicants, so maybe the applicants don't need to know how many other people have applied - have a "no volunteers yet" label
 
 - Language
- - [ ] Design might change depending on the language due to direction of text, design to account for both
+ - [x] Design might change depending on the language due to direction of text, design to account for both
 
 - Why group roles by organisation?
  - If we do this, we can't sort the list in a sensible way
- - [ ] Instead, have the org name as part of the role listing, and then order by date, or org name or what we want to.
+ - [x] Instead, have the org name as part of the role listing, and then order by date, or org name or what we want to.
 
 - Not much info on listing page, have to click through:
-  - [ ] Add more information to each listing (Role 1, Org Name, Location, Start Date, End Date)
+  - [x] Add more information to each listing (Role 1, Org Name, Location, Start Date, End Date)
 
 - No info on role you are applying for when filling out form:
- - [ ] Add info on role to form page
+ - [x] Add info on role to form page
 
 - Home page info:
- - [ ] Not hugely informative, make it more.
+ - [x] Not hugely informative, make it more.
