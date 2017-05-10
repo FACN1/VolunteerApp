@@ -9,7 +9,7 @@
     <div class="mt3">
       <label class="db fw4 lh-copy f4" for="org-name">{{text.orgFormName}}</label>
       <!-- we take what we filled and keep it in the form -->
-      <input class="pa2 input-reset ba bg-transparent w-100 measure br3" type="text" id="org-name" name="org_name" {{#if prefilled}}
+      <input class="pa2 input-reset ba altbg w-100 measure br2" type="text" id="org-name" name="org_name" {{#if prefilled}}
           {{#each prefilled}}
           value={{this.org_name}}
           {{/each}}
@@ -17,23 +17,23 @@
     </div>
     <div class="mt3">
       <label class="db fw4 lh-copy f4" for="org-desc">{{text.orgFormDesc}}</label>
-      <textarea class="pa2 input-reset ba bg-transparent w-100 measure br3" id="org-desc" name="org_desc">{{#if prefilled}}{{#each prefilled}}{{this.org_desc}}{{/each}}{{/if}}</textarea>
+      <textarea class="pa2 input-reset ba altbg w-100 measure br2" id="org-desc" name="org_desc">{{#if prefilled}}{{#each prefilled}}{{this.org_desc}}{{/each}}{{/if}}</textarea>
     </div>
     <div class="mt3">
       <label class="db fw4 lh-copy f4" for="role-name">{{text.orgFormRolename}}</label>
-      <input class="pa2 input-reset ba bg-transparent w-100 measure br3" type="text" id="role-name" name="role_name" {{#if prefilled}}
+      <input class="pa2 input-reset ba altbg w-100 measure br3" type="text" id="role-name" name="role_name" {{#if prefilled}}
           {{#each prefilled}}
             value={{this.role_name}}
           {{/each}}
         {{/if}}>
     </div>
     <div class="mt3">
-      <label class="db" for="role-desc">{{text.orgFormRoleDesc}}</label>
-      <textarea class="pa2 input-reset ba bg-transparent w-100 measure br3" id="role-desc" name="role_desc"> {{#if prefilled}}{{#each prefilled}}{{this.role_desc}}{{/each}}{{/if}}</textarea>
+      <label class="db fw4 lh-copy f4" for="role-desc">{{text.orgFormRoleDesc}}</label>
+      <textarea class="pa2 input-reset ba altbg w-100 measure br2" id="role-desc" name="role_desc"> {{#if prefilled}}{{#each prefilled}}{{this.role_desc}}{{/each}}{{/if}}</textarea>
     </div>
     <div class="mt3">
       <label class="db fw4 lh-copy f4" for="num_vol">{{text.orgFormVolnum}}</label>
-      <input class="pa2 input-reset ba bg-transparent w-20 mw3 br3" type="number" id="num_vol" name="num_vol" min="1" step="1" {{#if prefilled}}
+      <input class="pa2 input-reset ba altbg w-20 mw3 br2" type="number" id="num_vol" name="num_vol" min="1" step="1" {{#if prefilled}}
           {{#each prefilled}}
             value={{this.num_vol}}
           {{/each}}
@@ -41,7 +41,7 @@
     </div>
     <div class="mt3">
       <label class="db fw4 lh-copy f4" for="start-date">{{text.orgFormStartdate}}</label>
-      <input class="pa2 input-reset ba bg-transparent w-50 mw5 br3" type="date" id="start-date" name="start_date" {{#if prefilled}}
+      <input class="pa2 input-reset ba altbg w-50 mw5 br2" type="date" id="start-date" name="start_date" {{#if prefilled}}
           {{#each prefilled}}
             value={{this.start_date}}
           {{/each}}
@@ -49,7 +49,7 @@
     </div>
     <div class="mt3">
       <label class="db fw4 lh-copy f4" for="end_date">{{text.orgFormEnddate}}</label>
-      <input class="pa2 input-reset ba bg-transparent w-50 mw5 br3" type="date" id="end_date" name="end_date" {{#if prefilled}}
+      <input class="pa2 input-reset ba altbg w-50 mw5 br2" type="date" id="end_date" name="end_date" {{#if prefilled}}
           {{#each prefilled}}
             value={{this.end_date}}
           {{/each}}
@@ -57,7 +57,7 @@
     </div>
     <div class="mt3">
       <label class="db fw4 lh-copy f4" for="phone">{{text.orgFormPhonenum}}</label>
-      <input class="pa2 input-reset ba bg-transparent w-100 measure-narrow br3" type="text" id="phone" name="user_phone" {{#if prefilled}}
+      <input class="pa2 input-reset ba altbg w-100 measure-narrow br2" type="text" id="phone" name="user_phone" {{#if prefilled}}
           {{#each prefilled}}
             value={{this.user_phone}}
           {{/each}}
@@ -65,7 +65,7 @@
     </div>
     <div class="mt3">
       <label class="db fw4 lh-copy f4" for="mail">{{text.orgFormEmail}}</label>
-      <input class="pa2 input-reset ba bg-transparent w-100 measure-narrow br3" type="email" id="mail" name="user_mail" {{#if prefilled}}
+      <input class="pa2 input-reset ba altbg w-100 measure-narrow br2" type="email" id="mail" name="user_mail" {{#if prefilled}}
           {{#each prefilled}}
             value={{this.user_mail}}
           {{/each}}
