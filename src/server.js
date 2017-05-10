@@ -193,7 +193,8 @@ app.post('/addrole', (req, res) => {
             'start_date': new Date(req.body.start_date),
             'end_date': new Date(req.body.end_date),
              // add the date that the client fill the form
-            'date_added': new Date()
+            'date_added': new Date(),
+            'num_applied': 0
           };
           // connect to the table called vol_roles
           const collection = db.collection('vol_roles');
@@ -202,9 +203,7 @@ app.post('/addrole', (req, res) => {
             if (err) return ('Error inserting to DB: ', err);
             db.close();
             // redirect the information to the list page also
-            res.redirect('/list', {
-              headline: text.listHeader
-            });
+            res.redirect('/list');
           });
         }
       });
@@ -267,11 +266,18 @@ app.post('/addvolunteer', (req, res) => {
           // insert the data in db
           collection.insert(role, {w: 1}, (err, result) => {
             if (err) return ('Error inserting to DB: ', err);
-            db.close();
-            // redirect the information to the datasubmit page also
-            res.render('datasubmit', {
-              headline: text.submitHeader
-            });
+
+            // Update role table to increase number of volunteers applied
+            const roleCollection = db.collection('vol_roles');
+            roleCollection.update(
+              {'_id': ObjectId(req.body.role_id)},
+              {$inc: {num_applied: 1}}, (err, result) => {
+                if (err) return ('Error inserting to DB: ', err);
+                // redirect the information to the datasubmit page also
+                res.render('datasubmit', {
+                  headline: text.submitHeader
+                });
+              });
           });
         }
       });
