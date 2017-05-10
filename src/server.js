@@ -193,8 +193,7 @@ app.post('/addrole', (req, res) => {
             'start_date': new Date(req.body.start_date),
             'end_date': new Date(req.body.end_date),
              // add the date that the client fill the form
-            'date_added': new Date(),
-            'num_applied': 0
+            'date_added': new Date()
           };
           // connect to the table called vol_roles
           const collection = db.collection('vol_roles');
