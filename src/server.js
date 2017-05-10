@@ -5,6 +5,7 @@ const mongodb = require('mongodb');
 const ObjectId = require('mongodb').ObjectID;
 const favicon = require('serve-favicon');
 const schema = require('./schemas/index.js');
+const functions = require('./functions.js');
 
 require('env2')('./config.env');
 const bodyParser = require('body-parser');
@@ -121,6 +122,10 @@ app.get('/form', (req, res) => {
       }).toArray((err, docs) => {
         if (err) return err;
         const data = docs[0];
+        const goodSDate = functions.convertDate(data.start_date);
+        data.start_date = goodSDate;
+        const goodEDate = functions.convertDate(data.end_date);
+        data.end_date = goodEDate;
         res.render('form', {
           // make object with role as a key and data as value to pass to view
           role: data,
@@ -144,10 +149,10 @@ app.get('/list', (req, res) => {
         else if (result.length) {
           // loop through the dates to make them look the same
           result.forEach((item, index) => {
-            const goodsDate = new Date(item.start_date).toDateString();
-            result[index].start_date = goodsDate;
-            const goodeDate = new Date(item.end_date).toDateString();
-            result[index].end_date = goodeDate;
+            const goodSDate = functions.convertDate(item.start_date);
+            result[index].start_date = goodSDate;
+            const goodEDate = functions.convertDate(item.end_date);
+            result[index].end_date = goodEDate;
           });
           res.render('list', {
             'roleList': result,
