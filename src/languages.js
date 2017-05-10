@@ -8,7 +8,7 @@ module.exports = {
     // list page
     listHeader: 'فرص للتطوع',
     roleDesc: 'تفاصيل عن العمل التطوعي',
-    OrgDesc: 'شرح مختصر عن الجمعية',
+    OrgDesc: 'شرح مختصر عن المنظمة',
     moreInfoBtn: 'للمزيد من المعلومات',
     lessInfoBtn: 'معلومات اقل',
     applyButton: 'تطوع',
