@@ -101,9 +101,10 @@ app.post('/langChange', (req, res) => {
   app.locals.text = text;
 
   // redirect back to the page the post request came from unless from 2 specific pages
-  if (req.headers.referer === 'http://localhost:8080/addvolunteer') {
+  // req.headers.referer is the page where the language change attempt occured, req.headers.origin is the name of the host
+  if (req.headers.referer === (req.headers.origin + '/addvolunteer')) {
     res.redirect('list');
-  } else if ((req.headers.referer === 'http://localhost:8080/orgform') || (req.headers.referer === 'http://localhost:8080/addrole')) {
+  } else if ((req.headers.referer === (req.headers.origin + '/orgform')) || (req.headers.referer === (req.header.origin + '/addrole'))) {
     res.redirect('login');
   } else {
     res.redirect(req.headers.referer);
