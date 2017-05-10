@@ -19,7 +19,7 @@ const languages = require('./languages.js');
 let language = 'arabic';
 let text = languages[language];
 let dir = 'rtl';
-
+// object for the redirects pages
 const langRedirects = {
   '/addvolunteer': 'list',
   '/orgform': 'login',
