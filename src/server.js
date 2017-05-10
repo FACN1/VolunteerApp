@@ -20,6 +20,12 @@ let language = 'arabic';
 let text = languages[language];
 let dir = 'rtl';
 
+const langRedirects = {
+  '/addvolunteer': 'list',
+  '/orgform': 'login',
+  '/addrole': 'login'
+};
+
 // set the port
 app.set('port', process.env.PORT || 8080);
 
@@ -102,12 +108,16 @@ app.post('/langChange', (req, res) => {
 
   // redirect back to the page the post request came from unless from 2 specific pages
   // req.headers.referer is the page where the language change attempt occured, req.headers.origin is the name of the host
-  if (req.headers.referer === (req.headers.origin + '/addvolunteer')) {
-    res.redirect('list');
-  } else if ((req.headers.referer === (req.headers.origin + '/orgform')) || (req.headers.referer === (req.header.origin + '/addrole'))) {
-    res.redirect('login');
+  // get the path from which the request came by removing the host part
+  const refererLong = req.headers.referer;
+  const referer = refererLong.replace(req.headers.origin, '');
+
+  // check if that path is a key in the redirect object (defined above), and if so, redirect to the value of that
+  // if not, just redirect back to the referer
+  if (langRedirects[referer]) {
+    res.redirect(langRedirects[referer]);
   } else {
-    res.redirect(req.headers.referer);
+    res.redirect(refererLong);
   }
 });
 
