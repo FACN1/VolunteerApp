@@ -6,6 +6,11 @@
     <h4>{{this.org_name}}</h4>
     <h4>{{../text.orgFormStartdate}} {{this.start_date}}</h4>
     <h4>{{../text.orgFormEnddate}} {{this.end_date}}</h4>
+      {{#unless this.num_applied}}
+        <div class= " f6 lh-copy  mb3 br2  mw5-5 ba b--ourgreen dib pa1">
+          {{../text.numApplied}}
+        </div>
+      {{/unless}}
     <div class="flex justify-between w-80 center">
       <i class="altbg shadow-2 mw4 tc brown link grow f5 ba br3
       pa2 bg-leave fa fa-angle-double-down" id="moreBtn"></i>

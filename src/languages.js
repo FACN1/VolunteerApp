@@ -70,7 +70,8 @@ module.exports = {
     mongoIDError: 'هناك خلل في قاعدة البيانات',
     password: 'كلمة المرور',
     passwordSubmit: 'اضغط',
-    wrongPassword: 'كلمة المرور خاطئة'
+    wrongPassword: 'كلمة المرور خاطئة',
+    numApplied: 'لا يوجد متطوعين حتى الان !'
   },
   english: {
     title: 'Tree Of Life',
@@ -141,6 +142,7 @@ module.exports = {
     mongoIDError: 'Something went wrong with the database ID',
     password: 'Password:',
     passwordSubmit: 'Submit',
-    wrongPassword: 'Wrong Password'
+    wrongPassword: 'Wrong Password',
+    numApplied: 'No volunteers yet!'
   }
 };
