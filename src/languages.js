@@ -2,7 +2,7 @@ module.exports = {
   arabic: {
     // home page
     title: 'شجرة الحياة',
-    description: 'هذا التطبيق عبارة عن منصة بين كل من يرغب بالتطوع ويبحث عن اطار ملائم وجمعيات باحثة عن متطوعين',
+    description: 'هذا التطبيق عبارة عن منصة تجمع بين كل من يرغب بالتطوع ويبحث عن اطار ملائم وبين منظمات باحثة عن متطوعين',
     frontPageButton: 'متطوع',
     frontPageOrgButton: 'منظمة',
     // list page
@@ -19,7 +19,7 @@ module.exports = {
     formFN: 'الاسم الشخصي',
     formLN: 'اسم العائلة',
     formAge: 'العمر',
-    formAvail: 'امكانية التطوع حسب (ساعات الفراغ او الايام ',
+    formAvail: 'امكانية التطوع حسب (ساعات الفراغ او الايام)',
     formPhone: 'رقم الهاتف',
     formEmail: 'البريد الالكتروني:',
     formSubmit: 'ارسل',
